@@ -29,4 +29,5 @@ Setup included :
 	* All colors are available inside `colors.xml`
 	* Styles are available inside `styles.xml`
 	* Custom Fonts are using `CustomTextView` on `utils` package and custom attribute on `attrs.xml`
+	* Roboto fonts included
 
