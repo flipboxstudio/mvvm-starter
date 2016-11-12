@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">MVVM Starter</string>
+    <string name="email_label">Email</string>
+    <string name="password_label">Password</string>
+    <string name="sign_in_label">Masuk</string>
+    <string name="forgot_password_label">Lupa Password</string>
+    <string name="password_hint">Password Anda</string>
+    <string name="email_hint">Alamat email Anda</string>
+    <string name="user_id_label">User ID</string>
+    <string name="user_id_hint">User ID Anda</string>
+    <string name="reset_password_instruction">Kami akan mengirimkan email berisi tautan menuju halaman untuk mereset password Anda.</string>
+    <string name="kirim_label">Kirim</string>
+</resources>

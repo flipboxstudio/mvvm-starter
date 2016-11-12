@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/activity_main"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <id.co.flipbox.mvvmstarter.utils.CustomTextView
+        android:id="@+id/forgot_instruction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/space_medium"
+        android:layout_marginStart="@dimen/space_small"
+        android:layout_marginEnd="@dimen/space_small"
+        style="@style/TextViewParagraph"
+        android:textAlignment="center"
+        android:text="
+        This is your main activity. Extend it with anything you see fit.
+        \n \n
+        Please notice that this haven't been initialized using Data Binding Library.
+        \n \n
+        Initialize it with proper ViewModel and such.
+        \n \n
+        You can refer to https://docs.google.com/presentation/d/1IyzTFO4-vBxSd-mog7k6yUKP8wVOGFqx7SuUfwY93bk for the style guide"
+        />
+
+</RelativeLayout>
