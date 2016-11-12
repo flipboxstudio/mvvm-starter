@@ -31,3 +31,10 @@ Setup included :
 	* Custom Fonts are using `CustomTextView` on `utils` package and custom attribute on `attrs.xml`
 	* Roboto fonts included
 
+### ToDo
+
+- [ ] Documentation
+- [ ] Location detection
+- [ ] Analytics setup
+- [ ] Moar utils
+- [ ] Any suggestion?
