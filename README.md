@@ -30,6 +30,10 @@ Setup included :
 	* Styles are available inside `styles.xml`
 	* Custom Fonts are using `CustomTextView` on `utils` package and custom attribute on `attrs.xml`
 	* Roboto fonts included
+	
+--
+![screenshots](https://puu.sh/sfHCR/c034b07541.png "Screenshots")
+--
 
 ### ToDo
 
