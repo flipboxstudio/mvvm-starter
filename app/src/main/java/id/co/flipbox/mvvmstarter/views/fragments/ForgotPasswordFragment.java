@@ -8,14 +8,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import org.greenrobot.eventbus.Subscribe;
+
 import id.co.flipbox.mvvmstarter.R;
 import id.co.flipbox.mvvmstarter.data.DataManager;
 import id.co.flipbox.mvvmstarter.data.events.ErrorEvent;
 import id.co.flipbox.mvvmstarter.data.events.ForgotPasswordSuccessEvent;
 import id.co.flipbox.mvvmstarter.databinding.FragmentForgotPasswordBinding;
-import id.co.flipbox.mvvmstarter.utils.S;
-
-import org.greenrobot.eventbus.Subscribe;
+import id.co.flipbox.mvvmstarter.utils.constants.S;
 
 public class ForgotPasswordFragment extends BaseFragment
 {

@@ -1,13 +1,12 @@
 package id.co.flipbox.mvvmstarter.data.remote;
 
+import org.greenrobot.eventbus.EventBus;
+
 import id.co.flipbox.mvvmstarter.MyApplication;
 import id.co.flipbox.mvvmstarter.data.events.BaseEvent;
 import id.co.flipbox.mvvmstarter.data.events.EmptyEvent;
 import id.co.flipbox.mvvmstarter.data.events.ErrorEvent;
-import id.co.flipbox.mvvmstarter.utils.S;
-
-import org.greenrobot.eventbus.EventBus;
-
+import id.co.flipbox.mvvmstarter.utils.constants.I;
 import retrofit2.Response;
 
 /**
@@ -25,7 +24,7 @@ abstract class BaseAPI
     {
         if (response.isSuccessful())
         {
-            if (response.code() == S.HTTP_NO_CONTENT)
+            if (response.code() == I.HTTP_NO_CONTENT)
             {
                 event.post(mEmptyEvent);
             }

@@ -3,10 +3,9 @@ package id.co.flipbox.mvvmstarter.data.remote.retrofit;
 import android.content.Context;
 import android.util.Log;
 
-import id.co.flipbox.mvvmstarter.MyApplication;
-
 import java.io.IOException;
 
+import id.co.flipbox.mvvmstarter.MyApplication;
 import okhttp3.Interceptor;
 import okhttp3.Response;
 

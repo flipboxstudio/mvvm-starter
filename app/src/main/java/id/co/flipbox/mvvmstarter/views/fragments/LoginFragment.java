@@ -10,15 +10,15 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+import org.greenrobot.eventbus.Subscribe;
+
 import id.co.flipbox.mvvmstarter.R;
 import id.co.flipbox.mvvmstarter.data.DataManager;
 import id.co.flipbox.mvvmstarter.data.events.ErrorEvent;
 import id.co.flipbox.mvvmstarter.data.events.LoginSuccessEvent;
 import id.co.flipbox.mvvmstarter.databinding.FragmentLoginBinding;
-import id.co.flipbox.mvvmstarter.utils.S;
-import id.co.flipbox.mvvmstarter.views.activities.MainActivity;
-
-import org.greenrobot.eventbus.Subscribe;
+import id.co.flipbox.mvvmstarter.utils.constants.S;
+import id.co.flipbox.mvvmstarter.views.activities.ViewPagerActivity;
 
 public class LoginFragment extends BaseFragment
 {
@@ -169,7 +169,7 @@ public class LoginFragment extends BaseFragment
     {
         hideLoading();
         mBinding.loginButton.setEnabled(true);
-        Intent intent = new Intent(getContext(), MainActivity.class);
+        Intent intent = new Intent(getContext(), ViewPagerActivity.class);
         startActivity(intent);
         getActivity().finish();
     }

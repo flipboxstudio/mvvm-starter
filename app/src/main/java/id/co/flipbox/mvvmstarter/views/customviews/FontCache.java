@@ -1,4 +1,4 @@
-package id.co.flipbox.mvvmstarter.utils;
+package id.co.flipbox.mvvmstarter.views.customviews;
 
 import android.content.Context;
 import android.graphics.Typeface;

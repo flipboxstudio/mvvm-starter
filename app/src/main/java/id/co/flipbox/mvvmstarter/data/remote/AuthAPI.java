@@ -1,10 +1,10 @@
 package id.co.flipbox.mvvmstarter.data.remote;
 
+import com.google.gson.JsonObject;
+
 import id.co.flipbox.mvvmstarter.data.events.ErrorEvent;
 import id.co.flipbox.mvvmstarter.data.events.ForgotPasswordSuccessEvent;
 import id.co.flipbox.mvvmstarter.data.events.LoginSuccessEvent;
-import com.google.gson.JsonObject;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

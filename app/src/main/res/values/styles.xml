@@ -12,11 +12,11 @@
         <item name="android:textSize">14sp</item>
     </style>
 
-    <style name="TextAppearance.Small.Blue" parent="TextAppearance.Small">
+    <style name="TextAppearance.Small.Primary" parent="TextAppearance.Small">
         <item name="android:textColor">@color/colorPrimary</item>
     </style>
 
-    <style name="TextAppearance.Small.Orange" parent="TextAppearance.Small">
+    <style name="TextAppearance.Small.Accent" parent="TextAppearance.Small">
         <item name="android:textColor">@color/colorAccent</item>
     </style>
 
@@ -27,12 +27,12 @@
     <style name="TextViewLabel">
         <item name="fontPath">font/Roboto-Medium.ttf</item>
         <item name="android:layout_marginStart">@dimen/space_small</item>
-        <item name="android:textAppearance">@style/TextAppearance.Small.Blue</item>
+        <item name="android:textAppearance">@style/TextAppearance.Small.Primary</item>
     </style>
 
     <style name="TextViewNav">
         <item name="fontPath">font/Roboto-Medium.ttf</item>
-        <item name="android:textAppearance">@style/TextAppearance.Small.Orange</item>
+        <item name="android:textAppearance">@style/TextAppearance.Small.Accent</item>
     </style>
 
     <style name="TextViewParagraph">

@@ -1,6 +1,5 @@
 package id.co.flipbox.mvvmstarter.data.events;
 
-import id.co.flipbox.mvvmstarter.utils.S;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
@@ -8,6 +7,8 @@ import com.google.gson.TypeAdapter;
 
 import java.io.IOException;
 
+import id.co.flipbox.mvvmstarter.utils.constants.I;
+import id.co.flipbox.mvvmstarter.utils.constants.S;
 import okhttp3.ResponseBody;
 import retrofit2.Response;
 
@@ -21,7 +22,7 @@ public class ErrorEvent extends BaseEvent
 
     public ErrorEvent (Response response)
     {
-        if (response.code() == S.HTTP_NO_CONTENT)
+        if (response.code() == I.HTTP_NO_CONTENT)
         {
             message = S.error_tidak_ada_data;
         }

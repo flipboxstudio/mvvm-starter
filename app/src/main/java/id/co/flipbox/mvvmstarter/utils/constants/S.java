@@ -1,13 +1,12 @@
-package id.co.flipbox.mvvmstarter.utils;
+package id.co.flipbox.mvvmstarter.utils.constants;
 
 /**
  * Created by bukhoriaqid on 11/10/16.
+ * string constants
  */
 
 public class S
 {
-    public static final int HTTP_NO_CONTENT = 204;
-
     //TITLES
     public static String title_masuk = "Masuk";
     public static String title_lupa_password = "Lupa Password?";

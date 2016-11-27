@@ -1,7 +1,9 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:custom="http://schemas.android.com/apk/res-auto">
+    >
+
     <data>
+
         <variable
             name="auth"
             type="id.co.flipbox.mvvmstarter.viewmodels.AuthViewModel"/>
@@ -19,80 +21,80 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <id.co.flipbox.mvvmstarter.utils.CustomTextView
+            <id.co.flipbox.mvvmstarter.views.customviews.CustomTextView
+                style="@style/TextViewLabel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/user_id_label"
-                style="@style/TextViewLabel"
+                android:layout_marginEnd="@dimen/space_small"
                 android:layout_marginTop="@dimen/space_large"
-                android:layout_marginEnd="@dimen/space_small" />
+                android:text="@string/user_id_label"/>
 
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/user_id_wrapper"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/space_small"
                 android:layout_marginEnd="@dimen/space_small"
-                app:hintEnabled="false"
-                app:hintAnimationEnabled="false">
+                android:layout_marginStart="@dimen/space_small"
+                app:hintAnimationEnabled="false"
+                app:hintEnabled="false">
 
                 <EditText
                     android:id="@+id/email_user"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:maxLines="1"
-                    android:hint="@string/user_id_hint"
                     android:layout_marginStart="-4dp"
-                    android:inputType="textEmailAddress"/>
+                    android:hint="@string/user_id_hint"
+                    android:inputType="textEmailAddress"
+                    android:maxLines="1"/>
 
             </android.support.design.widget.TextInputLayout>
 
-            <id.co.flipbox.mvvmstarter.utils.CustomTextView
+            <id.co.flipbox.mvvmstarter.views.customviews.CustomTextView
+                style="@style/TextViewLabel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/password_label"
-                android:layout_marginTop="@dimen/space_large"
-                style="@style/TextViewLabel"
                 android:layout_marginEnd="@dimen/space_small"
+                android:layout_marginTop="@dimen/space_large"
+                android:text="@string/password_label"
                 />
 
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/password_wrapper"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:hintEnabled="false"
-                app:hintAnimationEnabled="false"
                 android:layout_marginEnd="@dimen/space_small"
-                android:layout_marginStart="@dimen/space_small">
+                android:layout_marginStart="@dimen/space_small"
+                app:hintAnimationEnabled="false"
+                app:hintEnabled="false">
 
                 <EditText
                     android:id="@+id/password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="-4dp"
+                    android:hint="@string/password_hint"
                     android:imeActionId="@+id/login"
                     android:imeOptions="actionUnspecified"
                     android:inputType="textPassword"
-                    android:hint="@string/password_hint"
-                    android:layout_marginStart="-4dp"
                     android:maxLines="1"/>
             </android.support.design.widget.TextInputLayout>
 
             <Button
                 android:id="@+id/login_button"
                 style="@style/Button.Active"
-                android:layout_marginStart="@dimen/space_small"
-                android:layout_marginEnd="@dimen/space_small"
-                android:layout_marginTop="@dimen/space_medium"
                 android:layout_marginBottom="@dimen/space_medium"
+                android:layout_marginEnd="@dimen/space_small"
+                android:layout_marginStart="@dimen/space_small"
+                android:layout_marginTop="@dimen/space_medium"
                 android:text="@string/sign_in_label"
                 />
 
             <TextView
                 android:id="@+id/forgot_password"
+                style="@style/TextViewNav"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
-                style="@style/TextViewNav"
                 android:text="@string/forgot_password_label"
                 />
 

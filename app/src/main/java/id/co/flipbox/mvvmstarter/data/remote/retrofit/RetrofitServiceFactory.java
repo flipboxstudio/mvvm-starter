@@ -1,11 +1,11 @@
 package id.co.flipbox.mvvmstarter.data.remote.retrofit;
 
-import id.co.flipbox.mvvmstarter.data.DataManager;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import java.io.IOException;
 
+import id.co.flipbox.mvvmstarter.data.DataManager;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
