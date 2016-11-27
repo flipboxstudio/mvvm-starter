@@ -40,4 +40,5 @@ public class ViewPagerActivity extends AppCompatActivity
         mTabLayout.setupWithViewPager(mViewPager);
     }
 
+
 }

@@ -5,7 +5,6 @@
               android:orientation="vertical">
 
     <id.co.flipbox.mvvmstarter.views.customviews.CustomTextView
-        android:id="@+id/forgot_instruction"
         style="@style/TextViewParagraph"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -23,5 +22,20 @@
         You can refer to https://docs.google.com/presentation/d/1IyzTFO4-vBxSd-mog7k6yUKP8wVOGFqx7SuUfwY93bk for the style guide"
         android:textAlignment="center"
         />
+
+    <id.co.flipbox.mvvmstarter.views.customviews.CustomTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:padding="@dimen/space_extra_small"
+        android:text="below are some sample of utils class usage"/>
+
+    <Button
+        android:id="@+id/btn_get_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="GET IMAGE"/>
 
 </LinearLayout>

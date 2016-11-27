@@ -66,7 +66,7 @@ public class ForgotPasswordFragment extends BaseFragment
     @Override
     void initEvent ()
     {
-        mBinding.forgotSubmit.setOnClickListener(new View.OnClickListener()
+        mBinding.btnForgotSubmit.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick (View v)
@@ -101,14 +101,14 @@ public class ForgotPasswordFragment extends BaseFragment
 
     private void submitForgotPassword ()
     {
-        String id = mBinding.emailWrapper.getEditText().getText().toString();
+        String id = mBinding.tilEmailWrapper.getEditText().getText().toString();
         if (!validate(id))
         {
             return;
         }
 
         //precaution for double click
-        mBinding.forgotSubmit.setEnabled(false);
+        mBinding.btnForgotSubmit.setEnabled(false);
 
         showLoading(S.loading_text);
         DataManager.forgotPassword(id);
@@ -119,7 +119,7 @@ public class ForgotPasswordFragment extends BaseFragment
         boolean valid = true;
         if (email.length() == 0)
         {
-            mBinding.emailWrapper.setError(S.error_id_kosong);
+            mBinding.tilEmailWrapper.setError(S.error_id_kosong);
             valid = false;
         }
 
@@ -132,7 +132,7 @@ public class ForgotPasswordFragment extends BaseFragment
         hideLoading();
         mListener.showLoginForm();
         Toast.makeText(getContext(), S.success_lupa_password, Toast.LENGTH_SHORT).show();
-        mBinding.forgotSubmit.setEnabled(true);
+        mBinding.btnForgotSubmit.setEnabled(true);
     }
 
     @Subscribe
@@ -140,7 +140,7 @@ public class ForgotPasswordFragment extends BaseFragment
     {
         hideLoading();
         Toast.makeText(getContext(), event.getMessage(), Toast.LENGTH_SHORT).show();
-        mBinding.forgotSubmit.setEnabled(true);
+        mBinding.btnForgotSubmit.setEnabled(true);
     }
 
     public interface OnForgotFragmentInteractionListener

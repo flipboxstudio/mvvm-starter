@@ -26,7 +26,7 @@ public class AuthActivity extends AppCompatActivity implements LoginFragment.OnL
 
         // init first fragment
         ft = fm.beginTransaction();
-        ft.add(R.id.fragment_container, loginFragment);
+        ft.add(R.id.fl_fragment_container, loginFragment);
         ft.commit();
 
     }
@@ -57,14 +57,14 @@ public class AuthActivity extends AppCompatActivity implements LoginFragment.OnL
         fm.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
 
         ft = fm.beginTransaction();
-        ft.replace(R.id.fragment_container, loginFragment);
+        ft.replace(R.id.fl_fragment_container, loginFragment);
         ft.commit();
     }
 
     public void showForgotPassword ()
     {
         ft = fm.beginTransaction();
-        ft.replace(R.id.fragment_container, forgotPasswordFragment);
+        ft.replace(R.id.fl_fragment_container, forgotPasswordFragment);
         ft.addToBackStack("");
         ft.commit();
     }

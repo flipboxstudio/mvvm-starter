@@ -10,13 +10,13 @@
     </data>
 
     <ScrollView
-        android:id="@+id/login_form"
+        android:id="@+id/sv_login_form"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center_horizontal">
 
         <LinearLayout
-            android:id="@+id/user_login_form"
+            android:id="@+id/ll_user_login_form"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -30,7 +30,7 @@
                 android:text="@string/user_id_label"/>
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/user_id_wrapper"
+                android:id="@+id/til_user_id_wrapper"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/space_small"
@@ -39,7 +39,7 @@
                 app:hintEnabled="false">
 
                 <EditText
-                    android:id="@+id/email_user"
+                    android:id="@+id/et_email_user"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="-4dp"
@@ -59,7 +59,7 @@
                 />
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/password_wrapper"
+                android:id="@+id/til_password_wrapper"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/space_small"
@@ -68,7 +68,7 @@
                 app:hintEnabled="false">
 
                 <EditText
-                    android:id="@+id/password"
+                    android:id="@+id/et_password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="-4dp"
@@ -80,7 +80,7 @@
             </android.support.design.widget.TextInputLayout>
 
             <Button
-                android:id="@+id/login_button"
+                android:id="@+id/btn_login"
                 style="@style/Button.Active"
                 android:layout_marginBottom="@dimen/space_medium"
                 android:layout_marginEnd="@dimen/space_small"
@@ -89,8 +89,8 @@
                 android:text="@string/sign_in_label"
                 />
 
-            <TextView
-                android:id="@+id/forgot_password"
+            <id.co.flipbox.mvvmstarter.views.customviews.CustomTextView
+                android:id="@+id/tv_forgot_password"
                 style="@style/TextViewNav"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"

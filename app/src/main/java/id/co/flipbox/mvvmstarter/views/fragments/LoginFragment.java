@@ -78,7 +78,7 @@ public class LoginFragment extends BaseFragment
     @Override
     void initEvent ()
     {
-        mBinding.loginButton.setOnClickListener(new View.OnClickListener()
+        mBinding.btnLogin.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick (View view)
@@ -88,7 +88,7 @@ public class LoginFragment extends BaseFragment
             }
         });
 
-        mBinding.forgotPassword.setOnClickListener(new View.OnClickListener()
+        mBinding.tvForgotPassword.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick (View v)
@@ -131,8 +131,8 @@ public class LoginFragment extends BaseFragment
 
     public void submitLogin ()
     {
-        final String id = mBinding.userIdWrapper.getEditText().getText().toString();
-        final String password = mBinding.passwordWrapper.getEditText().getText().toString();
+        final String id = mBinding.tilUserIdWrapper.getEditText().getText().toString();
+        final String password = mBinding.tilPasswordWrapper.getEditText().getText().toString();
 
         if (!validate(id, password))
         {
@@ -140,7 +140,7 @@ public class LoginFragment extends BaseFragment
         }
 
         //precaution for double click
-        mBinding.loginButton.setEnabled(false);
+        mBinding.btnLogin.setEnabled(false);
 
         showLoading(S.loading_auth);
         DataManager.login(id, password);
@@ -152,12 +152,12 @@ public class LoginFragment extends BaseFragment
 
         if (id.length() == 0)
         {
-            mBinding.userIdWrapper.setError(S.error_id_kosong);
+            mBinding.tilUserIdWrapper.setError(S.error_id_kosong);
             valid = false;
         }
         if (password.length() == 0)
         {
-            mBinding.passwordWrapper.setError(S.error_password_kosong);
+            mBinding.tilPasswordWrapper.setError(S.error_password_kosong);
             valid = false;
         }
 
@@ -168,7 +168,7 @@ public class LoginFragment extends BaseFragment
     public void onSuccess (LoginSuccessEvent event)
     {
         hideLoading();
-        mBinding.loginButton.setEnabled(true);
+        mBinding.btnLogin.setEnabled(true);
         Intent intent = new Intent(getContext(), ViewPagerActivity.class);
         startActivity(intent);
         getActivity().finish();
@@ -179,7 +179,7 @@ public class LoginFragment extends BaseFragment
     {
         hideLoading();
         Toast.makeText(getContext(), event.getMessage(), Toast.LENGTH_LONG).show();
-        mBinding.loginButton.setEnabled(true);
+        mBinding.btnLogin.setEnabled(true);
     }
 
     public interface OnLoginFragmentInteractionListener
