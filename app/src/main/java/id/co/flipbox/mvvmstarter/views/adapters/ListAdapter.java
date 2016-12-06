@@ -20,8 +20,8 @@ import id.co.flipbox.mvvmstarter.viewmodels.UserViewModel;
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListViewHolder>
 {
 
-    private List<User> mUsers;
     private FragmentListItemBinding mBinding;
+    private List<User>              mUsers;
 
     public ListAdapter (List<User> users)
     {

@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/activity_main"
-    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
+    android:layout_height="match_parent">
 
     <android.support.design.widget.TabLayout
         android:id="@+id/tl_tabs_container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content" />
 
     <android.support.v4.view.ViewPager
         android:id="@+id/vp_fragments_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/tl_tabs_container"
-        android:layout_marginTop="@dimen/space_small"/>
+        android:layout_marginTop="@dimen/space_small" />
 
 </RelativeLayout>

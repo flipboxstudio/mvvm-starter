@@ -5,5 +5,4 @@ package id.co.flipbox.mvvmstarter.data.events;
  */
 
 public class ForgotPasswordSuccessEvent extends BaseEvent
-{
-}
+{}

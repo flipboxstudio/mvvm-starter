@@ -15,8 +15,8 @@ import retrofit2.Response;
 
 abstract class BaseAPI
 {
-    MyApplication app = MyApplication.getInstance();
-    EventBus event = EventBus.getDefault();
+    MyApplication app   = MyApplication.getInstance();
+    EventBus      event = EventBus.getDefault();
 
     EmptyEvent mEmptyEvent = new EmptyEvent();
 

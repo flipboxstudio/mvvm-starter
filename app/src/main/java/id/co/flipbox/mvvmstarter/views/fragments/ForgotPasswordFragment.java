@@ -20,8 +20,8 @@ import id.co.flipbox.mvvmstarter.utils.constants.S;
 public class ForgotPasswordFragment extends BaseFragment
 {
 
+    private FragmentForgotPasswordBinding       mBinding;
     private OnForgotFragmentInteractionListener mListener;
-    private FragmentForgotPasswordBinding mBinding;
 
     public ForgotPasswordFragment ()
     {
@@ -39,14 +39,12 @@ public class ForgotPasswordFragment extends BaseFragment
         }
         else
         {
-            throw new RuntimeException(context.toString()
-                                       + " must implement OnFragmentInteractionListener");
+            throw new RuntimeException(context.toString() + " must implement OnFragmentInteractionListener");
         }
     }
 
     @Override
-    public View onCreateView (LayoutInflater inflater, ViewGroup container,
-                              Bundle savedInstanceState)
+    public View onCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
         // Inflate the layout for this fragment
         mBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_forgot_password, container, false);

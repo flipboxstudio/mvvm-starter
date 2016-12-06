@@ -20,14 +20,12 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class RetrofitServiceFactory
 {
     // TODO: 11/12/16 define your own base url
-    private static final String BASE_URL = "https://jsonplaceholder.typicode.com";
+    private static final String               BASE_URL   = "https://jsonplaceholder.typicode.com";
     private static final OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
-    private static final Gson gson = new GsonBuilder().registerTypeAdapterFactory(new DataTypeAdapterFactory())
-                                                      .create();
-    private static final Retrofit.Builder sBuilder = new Retrofit.Builder()
-            .baseUrl(BASE_URL)
-            .addConverterFactory(
-                    GsonConverterFactory.create(gson));
+    private static final Gson                 gson       = new GsonBuilder()
+            .registerTypeAdapterFactory(new DataTypeAdapterFactory()).create();
+    private static final Retrofit.Builder     sBuilder   = new Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory(
+            GsonConverterFactory.create(gson));
 
     public static Retrofit sRetrofit;
 
@@ -51,10 +49,8 @@ public class RetrofitServiceFactory
             public Response intercept (Chain chain) throws IOException
             {
                 Request lOriginalRequest = chain.request();
-                Request lRequest = lOriginalRequest.newBuilder()
-                                                   .header("Authorization", authHeader)
-                                                   .method(lOriginalRequest.method(), lOriginalRequest.body())
-                                                   .build();
+                Request lRequest = lOriginalRequest.newBuilder().header("Authorization", authHeader)
+                                                   .method(lOriginalRequest.method(), lOriginalRequest.body()).build();
 
                 return chain.proceed(lRequest);
             }

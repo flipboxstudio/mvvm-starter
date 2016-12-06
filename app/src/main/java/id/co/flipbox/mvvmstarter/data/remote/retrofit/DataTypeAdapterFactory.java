@@ -12,8 +12,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Created by bukhoriaqid on 11/12/16.
- * Used to filter json return and only use necessary ones.
+ * Created by bukhoriaqid on 11/12/16. Used to filter json return and only use necessary ones.
  */
 
 public class DataTypeAdapterFactory implements TypeAdapterFactory
@@ -21,7 +20,7 @@ public class DataTypeAdapterFactory implements TypeAdapterFactory
     @Override
     public <T> TypeAdapter<T> create (Gson gson, TypeToken<T> type)
     {
-        final TypeAdapter<T> lDelegate = gson.getDelegateAdapter(this, type);
+        final TypeAdapter<T>           lDelegate       = gson.getDelegateAdapter(this, type);
         final TypeAdapter<JsonElement> lElementAdapter = gson.getAdapter(JsonElement.class);
 
         return new TypeAdapter<T>()

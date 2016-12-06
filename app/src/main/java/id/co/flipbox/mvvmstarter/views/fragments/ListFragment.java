@@ -23,8 +23,8 @@ import id.co.flipbox.mvvmstarter.views.adapters.ListAdapter;
 
 public class ListFragment extends BaseFragment
 {
-    List<User> mUsers;
     FragmentListBinding mBinding;
+    List<User>          mUsers;
 
 
     public ListFragment ()

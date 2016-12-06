@@ -15,7 +15,7 @@ import id.co.flipbox.mvvmstarter.data.remote.retrofit.RetrofitServiceFactory;
 public class MyApplication extends Application
 {
     private static MyApplication sApp;
-    public MyAPIService mAPIService;
+    public         MyAPIService  mAPIService;
 
     public static MyApplication getInstance ()
     {
@@ -39,7 +39,7 @@ public class MyApplication extends Application
     public boolean isNetworkAvailable ()
     {
         ConnectivityManager lConnectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo lNetworkInfo = lConnectivityManager.getActiveNetworkInfo();
+        NetworkInfo         lNetworkInfo         = lConnectivityManager.getActiveNetworkInfo();
         return lNetworkInfo != null && lNetworkInfo.isConnected();
     }
 }

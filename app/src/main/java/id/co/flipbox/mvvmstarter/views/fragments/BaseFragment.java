@@ -17,7 +17,7 @@ import org.greenrobot.eventbus.EventBus;
 public abstract class BaseFragment extends Fragment
 {
 
-    EventBus event;
+    EventBus       event;
     ProgressDialog progressDialog;
 
     @Override
@@ -44,9 +44,7 @@ public abstract class BaseFragment extends Fragment
         if (view != null)
         {
             ((InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE))
-                    .hideSoftInputFromWindow(
-                            view.getWindowToken(),
-                            InputMethodManager.HIDE_NOT_ALWAYS);
+                    .hideSoftInputFromWindow(view.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
         }
     }
 

@@ -39,22 +39,22 @@ public class CameraUtils
     public static Intent getImageFromGalleryCamera (Context context)
     {
         // Determine Uri of camera image to save.
-        File root = new File(Environment
-                                     .getExternalStorageDirectory() + File.separator + "dianta/camera" + File.separator);
+        File root = new File(
+                Environment.getExternalStorageDirectory() + File.separator + "dianta/camera" + File.separator);
         root.mkdirs();
-        String fname = "dianta-" + System.currentTimeMillis() + ".jpg";
-        File sdImageMainDirectory = new File(root, fname);
-        Uri outputFileUri = Uri.fromFile(sdImageMainDirectory);
+        String fname                = "dianta-" + System.currentTimeMillis() + ".jpg";
+        File   sdImageMainDirectory = new File(root, fname);
+        Uri    outputFileUri        = Uri.fromFile(sdImageMainDirectory);
 
         // camera
-        List<Intent> cameraIntents = new ArrayList<>();
-        Intent captureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        PackageManager lPackageManager = context.getPackageManager();
-        List<ResolveInfo> listCam = lPackageManager.queryIntentActivities(captureIntent, 0);
+        List<Intent>      cameraIntents   = new ArrayList<>();
+        Intent            captureIntent   = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        PackageManager    lPackageManager = context.getPackageManager();
+        List<ResolveInfo> listCam         = lPackageManager.queryIntentActivities(captureIntent, 0);
         for (ResolveInfo rInfo : listCam)
         {
             String packageName = rInfo.activityInfo.packageName;
-            Intent lIntent = new Intent(captureIntent);
+            Intent lIntent     = new Intent(captureIntent);
             lIntent.setComponent(new ComponentName(rInfo.activityInfo.packageName, rInfo.activityInfo.name));
             lIntent.setPackage(packageName);
             //save camera result to external storage

@@ -18,21 +18,20 @@ public class AuthAPI extends BaseAPI
     public void login (String id, String password)
     {
         // TODO: 11/12/16 define your own API URL
-        app.mAPIService.login(id)
-                       .enqueue(new Callback<JsonObject>()
-                       {
-                           @Override
-                           public void onResponse (Call<JsonObject> call, Response<JsonObject> response)
-                           {
-                               handleResponse(response, new LoginSuccessEvent());
-                           }
+        app.mAPIService.login(id).enqueue(new Callback<JsonObject>()
+        {
+            @Override
+            public void onResponse (Call<JsonObject> call, Response<JsonObject> response)
+            {
+                handleResponse(response, new LoginSuccessEvent());
+            }
 
-                           @Override
-                           public void onFailure (Call<JsonObject> call, Throwable t)
-                           {
-                               event.post(new ErrorEvent(t));
-                           }
-                       });
+            @Override
+            public void onFailure (Call<JsonObject> call, Throwable t)
+            {
+                event.post(new ErrorEvent(t));
+            }
+        });
     }
 
     public void logout ()
@@ -42,20 +41,19 @@ public class AuthAPI extends BaseAPI
     public void forgotPassword (String id)
     {
         // TODO: 11/12/16 define your own API URL
-        app.mAPIService.forgotPassword(id)
-                       .enqueue(new Callback<JsonObject>()
-                       {
-                           @Override
-                           public void onResponse (Call<JsonObject> call, Response<JsonObject> response)
-                           {
-                               handleResponse(response, new ForgotPasswordSuccessEvent());
-                           }
+        app.mAPIService.forgotPassword(id).enqueue(new Callback<JsonObject>()
+        {
+            @Override
+            public void onResponse (Call<JsonObject> call, Response<JsonObject> response)
+            {
+                handleResponse(response, new ForgotPasswordSuccessEvent());
+            }
 
-                           @Override
-                           public void onFailure (Call<JsonObject> call, Throwable t)
-                           {
-                               event.post(new ErrorEvent(t));
-                           }
-                       });
+            @Override
+            public void onFailure (Call<JsonObject> call, Throwable t)
+            {
+                event.post(new ErrorEvent(t));
+            }
+        });
     }
 }

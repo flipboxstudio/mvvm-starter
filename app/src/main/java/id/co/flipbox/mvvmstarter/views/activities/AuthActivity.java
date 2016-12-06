@@ -13,10 +13,10 @@ public class AuthActivity extends AppCompatActivity implements LoginFragment.OnL
         ForgotPasswordFragment.OnForgotFragmentInteractionListener
 {
 
-    FragmentManager fm = getSupportFragmentManager();
-    FragmentTransaction ft = fm.beginTransaction();
-    LoginFragment loginFragment = new LoginFragment();
+    FragmentManager        fm                     = getSupportFragmentManager();
     ForgotPasswordFragment forgotPasswordFragment = new ForgotPasswordFragment();
+    FragmentTransaction    ft                     = fm.beginTransaction();
+    LoginFragment          loginFragment          = new LoginFragment();
 
     @Override
     protected void onCreate (Bundle savedInstanceState)

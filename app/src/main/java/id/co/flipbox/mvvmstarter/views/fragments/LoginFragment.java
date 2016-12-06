@@ -23,9 +23,8 @@ import id.co.flipbox.mvvmstarter.views.activities.ViewPagerActivity;
 public class LoginFragment extends BaseFragment
 {
     private static final String TAG = LoginFragment.class.getSimpleName();
-
+    private FragmentLoginBinding               mBinding;
     private OnLoginFragmentInteractionListener mListener;
-    private FragmentLoginBinding mBinding;
 
     public LoginFragment ()
     {
@@ -43,8 +42,7 @@ public class LoginFragment extends BaseFragment
         }
         else
         {
-            throw new RuntimeException(context.toString()
-                                       + " must implement OnFragmentInteractionListener");
+            throw new RuntimeException(context.toString() + " must implement OnFragmentInteractionListener");
         }
     }
 
@@ -55,8 +53,7 @@ public class LoginFragment extends BaseFragment
     }
 
     @Override
-    public View onCreateView (LayoutInflater inflater, ViewGroup container,
-                              Bundle savedInstanceState)
+    public View onCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
         // Inflate the layout for this fragment
         mBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_login, container, false);
@@ -71,8 +68,7 @@ public class LoginFragment extends BaseFragment
     void initUI ()
     {
         getActivity().setTitle(S.title_masuk);
-        getActivity().getWindow().setSoftInputMode(
-                WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+        getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
     }
 
     @Override
@@ -131,7 +127,7 @@ public class LoginFragment extends BaseFragment
 
     public void submitLogin ()
     {
-        final String id = mBinding.tilUserIdWrapper.getEditText().getText().toString();
+        final String id       = mBinding.tilUserIdWrapper.getEditText().getText().toString();
         final String password = mBinding.tilPasswordWrapper.getEditText().getText().toString();
 
         if (!validate(id, password))

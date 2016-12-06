@@ -10,14 +10,13 @@ import okhttp3.Interceptor;
 import okhttp3.Response;
 
 /**
- * Created by bukhoriaqid on 11/12/16.
- * Used to intercept response header and act accordingly
+ * Created by bukhoriaqid on 11/12/16. Used to intercept response header and act accordingly
  */
 
 public class ResponseInterceptor implements Interceptor
 {
     private MyApplication mApplication;
-    private Context mContext;
+    private Context       mContext;
 
     public ResponseInterceptor ()
     {

@@ -9,8 +9,7 @@ import android.widget.TextView;
 import id.co.flipbox.mvvmstarter.R;
 
 /**
- * Created by bukhoriaqid on 11/11/16.
- * based on https://futurestud.io/tutorials/custom-fonts-on-android-extending-textview
+ * Created by bukhoriaqid on 11/11/16. based on https://futurestud.io/tutorials/custom-fonts-on-android-extending-textview
  * https://developer.android.com/training/custom-views/create-view.html
  */
 
@@ -43,8 +42,8 @@ public class CustomTextView extends TextView
 
     public void applyCustomFont (Context context, AttributeSet attrs)
     {
-        String fontPath = "font/Roboto-Regular.ttf";
-        TypedArray temp = context.getTheme().obtainStyledAttributes(attrs, R.styleable.CustomTextView, 0, 0);
+        String     fontPath = "font/Roboto-Regular.ttf";
+        TypedArray temp     = context.getTheme().obtainStyledAttributes(attrs, R.styleable.CustomTextView, 0, 0);
         try
         {
             fontPath = temp.getString(R.styleable.CustomTextView_fontPath);

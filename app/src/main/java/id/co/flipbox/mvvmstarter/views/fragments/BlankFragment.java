@@ -78,15 +78,19 @@ public class BlankFragment extends BaseFragment implements EasyPermissions.Permi
     @Override
     public void onPermissionsGranted (int requestCode, List<String> perms)
     {
-        if(requestCode == I.CAMERA_REQUEST_CODE)
+        if (requestCode == I.CAMERA_REQUEST_CODE)
+        {
             Toast.makeText(getContext(), R.string.permission_camera_granted, Toast.LENGTH_LONG).show();
+        }
     }
 
     @Override
     public void onPermissionsDenied (int requestCode, List<String> perms)
     {
-        if(requestCode == I.CAMERA_REQUEST_CODE)
+        if (requestCode == I.CAMERA_REQUEST_CODE)
+        {
             Toast.makeText(getContext(), R.string.permission_camera_denied, Toast.LENGTH_LONG).show();
+        }
     }
 
     @Override

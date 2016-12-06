@@ -18,9 +18,9 @@ import id.co.flipbox.mvvmstarter.views.fragments.ListFragment;
 public class ViewPagerActivity extends AppCompatActivity
 {
 
-    TabLayout mTabLayout;
-    ViewPager mViewPager;
     List<Fragment> mFragments;
+    TabLayout      mTabLayout;
+    ViewPager      mViewPager;
 
     @Override
     protected void onCreate (Bundle savedInstanceState)

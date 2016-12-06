@@ -12,7 +12,7 @@ public class CalendarUtils
 {
     public static Calendar parseDate (String date, String format) throws ParseException
     {
-        Calendar lCalendar = Calendar.getInstance();
+        Calendar         lCalendar = Calendar.getInstance();
         SimpleDateFormat formatter = new SimpleDateFormat(format);
         lCalendar.setTime(formatter.parse(date));
         return lCalendar;

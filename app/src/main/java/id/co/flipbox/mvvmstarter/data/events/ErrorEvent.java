@@ -69,8 +69,8 @@ public class ErrorEvent extends BaseEvent
     {
         JsonObject errorResponse;
 
-        ResponseBody body = response.errorBody();
-        Gson gson = new Gson();
+        ResponseBody            body    = response.errorBody();
+        Gson                    gson    = new Gson();
         TypeAdapter<JsonObject> adapter = gson.getAdapter(JsonObject.class);
         errorResponse = adapter.fromJson(body.string());
 
