@@ -25,4 +25,5 @@ public class S
     public static String error_tidak_ada_data = "Tidak ada data";
     public static String error_unknown = "Terjadi Error. Silahkan coba lagi";
     public static String error_connect = "Terjadi masalah pada koneksi internet.";
+    public static String camera_permission_message = "Akses ke kamera dibutuhkan";
 }

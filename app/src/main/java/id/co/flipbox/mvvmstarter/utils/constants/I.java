@@ -7,5 +7,6 @@ package id.co.flipbox.mvvmstarter.utils.constants;
 
 public class I
 {
-    public static final int HTTP_NO_CONTENT = 204;
+    public static final int HTTP_NO_CONTENT     = 204;
+    public static final int CAMERA_REQUEST_CODE = 999;
 }

@@ -10,6 +10,7 @@ Libraries used :
 * Retrofit `com.squareup.retrofit2:retrofit:2.1.0`
 * EventBus `org.greenrobot:eventbus:3.0.0`
 * Glide `com.github.bumptech.glide:glide:3.7.0`
+* EasyPermission `pub.devrel:easypermissions:0.2.1`
 * Hawk `com.orhanobut:hawk:2.0.1`
 * Android Libraries ( `appcompat`, `design support`, `data binding`, etc )
 
@@ -33,6 +34,9 @@ Setup included :
 * ViewPager Sample
 	* Sample viewpager implementation using tablayout
 	* See `ViewPagerActivity` for details
+* Android M permission handler using `EasyPermissions`
+	* Handle permission for Android M and above
+	* Sample implementation for CAMERA access permission
 * Reusable Style
 	* All colors are available inside `colors.xml`
 	* Styles are available inside `styles.xml`
@@ -52,6 +56,7 @@ Setup included :
 - [ ] Location detection
 - [ ] Analytics setup
 - [ ] Custom toolbar & menu
+- [x] Android M permissions sample
 - [x] Calendar utils
 - [x] Camera utils
 - [x] RecyclerView sample
