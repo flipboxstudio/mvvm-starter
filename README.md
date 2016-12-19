@@ -21,6 +21,8 @@ Setup included :
 * Data Binding
 	* Using Android Data Binding Library
 	* ViewModel is inside `viewmodels` package
+* Splash Screen
+	* Implement splash screen the right way [https://www.bignerdranch.com/blog/splash-screens-the-right-way/]
 * Authentication Flow
 	* Using Retrofit & ResponseInterceptor for request & response handling
 	* Dummy API using `https://jsonplaceholder.typicode.com`
@@ -41,6 +43,7 @@ Setup included :
 	* All colors are available inside `colors.xml`
 	* Styles are available inside `styles.xml`
 	* Custom Fonts are using `CustomTextView` on `utils` package and custom attribute on `attrs.xml`
+	* Vector Drawable assets
 	* Roboto fonts included
 * Utilities classes
 	* Camera Utils : Get image from camera / gallery
