@@ -8,6 +8,23 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="actionBarTheme">@style/MainMenu</item>
+    </style>
+
+    <style name="SplashTheme" parent="AppTheme.NoActionBar">
+        <item name="android:windowBackground">@drawable/background_splash_screen</item>
+    </style>
+
+    <style name="MainMenu" parent="ThemeOverlay.AppCompat.ActionBar">
+        <item name="titleTextColor">@android:color/white</item>
+        <!--change overflow icon color-->
+        <item name="android:textColorSecondary">@android:color/white</item>
+        <item name="colorControlNormal">@android:color/white</item>
+    </style>
+
     <style name="TextAppearance.Small" parent="android:TextAppearance">
         <item name="android:textSize">14sp</item>
     </style>
@@ -40,7 +57,7 @@
         <item name="android:textSize">14sp</item>
         <item name="android:textColor">#444444</item>
     </style>
-    
+
     <style name="Button">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">match_parent</item>
@@ -55,8 +72,14 @@
         <item name="android:textColor">@color/textInactive</item>
         <item name="android:background">#dddddd</item>
     </style>
+
     <style name="Button.Active" parent="Button">
         <item name="android:textColor">#ffffff</item>
         <item name="android:background">@color/colorAccent</item>
+    </style>
+
+    <style name="Button.BorderOnly" parent="Button">
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:background">@drawable/background_button_bordered</item>
     </style>
 </resources>
