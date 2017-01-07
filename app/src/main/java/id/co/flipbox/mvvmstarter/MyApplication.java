@@ -2,8 +2,11 @@ package id.co.flipbox.mvvmstarter;
 
 import android.app.Application;
 import android.content.Context;
+import android.location.Location;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+
+import com.google.android.gms.common.api.GoogleApiClient;
 
 import id.co.flipbox.mvvmstarter.data.remote.retrofit.MyAPIService;
 import id.co.flipbox.mvvmstarter.data.remote.retrofit.RetrofitServiceFactory;
@@ -14,8 +17,10 @@ import id.co.flipbox.mvvmstarter.data.remote.retrofit.RetrofitServiceFactory;
 
 public class MyApplication extends Application
 {
-    private static MyApplication sApp;
-    public         MyAPIService  mAPIService;
+    private static MyApplication   sApp;
+    public         MyAPIService    mAPIService;
+    public         GoogleApiClient mGoogleApiClient;
+    public         Location        mLastLocation;
 
     public static MyApplication getInstance ()
     {

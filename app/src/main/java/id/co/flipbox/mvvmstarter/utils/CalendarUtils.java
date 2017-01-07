@@ -18,12 +18,14 @@ public class CalendarUtils
         return lCalendar;
     }
 
+    // get month name. Indonesian locale
     public static String getMonthName (int month)
     {
         String months[] = {"JAN", "FEB", "MAR", "APR", "MEI", "JUN", "JUL", "AUG", "SEPT", "OKT", "NOV", "DES"};
         return months[month];
     }
 
+    // get day name. Indonesian locale
     public static String getDayName (int dayOfWeek)
     {
         String days[] = {"Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"};

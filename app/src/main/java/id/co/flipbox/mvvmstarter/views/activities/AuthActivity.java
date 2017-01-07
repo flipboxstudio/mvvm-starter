@@ -1,16 +1,23 @@
 package id.co.flipbox.mvvmstarter.views.activities;
 
+import android.Manifest;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
+import android.widget.Toast;
+
+import java.util.List;
 
 import id.co.flipbox.mvvmstarter.R;
+import id.co.flipbox.mvvmstarter.utils.constants.I;
+import id.co.flipbox.mvvmstarter.utils.constants.S;
 import id.co.flipbox.mvvmstarter.views.fragments.ForgotPasswordFragment;
 import id.co.flipbox.mvvmstarter.views.fragments.LoginFragment;
+import pub.devrel.easypermissions.EasyPermissions;
 
-public class AuthActivity extends AppCompatActivity implements LoginFragment.OnLoginFragmentInteractionListener,
-        ForgotPasswordFragment.OnForgotFragmentInteractionListener
+public class AuthActivity extends BaseActivity implements LoginFragment.OnLoginFragmentInteractionListener,
+        ForgotPasswordFragment.OnForgotFragmentInteractionListener, EasyPermissions.PermissionCallbacks
 {
 
     FragmentManager        fm                     = getSupportFragmentManager();
@@ -23,6 +30,14 @@ public class AuthActivity extends AppCompatActivity implements LoginFragment.OnL
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_auth);
+
+        //request location permission early
+        if (!EasyPermissions.hasPermissions(getApplicationContext(), Manifest.permission.ACCESS_FINE_LOCATION))
+        {
+            EasyPermissions
+                    .requestPermissions(AuthActivity.this, S.location_permission_message, I.LOCATION_REQUEST_CODE,
+                                        Manifest.permission.ACCESS_FINE_LOCATION);
+        }
 
         // init first fragment
         ft = fm.beginTransaction();
@@ -59,6 +74,32 @@ public class AuthActivity extends AppCompatActivity implements LoginFragment.OnL
         ft = fm.beginTransaction();
         ft.replace(R.id.fl_fragment_container, loginFragment);
         ft.commit();
+    }
+
+    @Override
+    public void onRequestPermissionsResult (int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults)
+    {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        EasyPermissions.onRequestPermissionsResult(I.LOCATION_REQUEST_CODE, permissions, grantResults, this);
+    }
+
+    @Override
+    public void onPermissionsGranted (int requestCode, List<String> perms)
+    {
+        if (requestCode == I.LOCATION_REQUEST_CODE)
+        {
+            Toast.makeText(getApplicationContext(), R.string.permission_granted, Toast.LENGTH_LONG).show();
+            super.initLocationDetection();
+        }
+    }
+
+    @Override
+    public void onPermissionsDenied (int requestCode, List<String> perms)
+    {
+        if (requestCode == I.LOCATION_REQUEST_CODE)
+        {
+            Toast.makeText(getApplicationContext(), R.string.permission_denied, Toast.LENGTH_LONG).show();
+        }
     }
 
     public void showForgotPassword ()

@@ -25,39 +25,6 @@
         <item name="colorControlNormal">@android:color/white</item>
     </style>
 
-    <style name="TextAppearance.Small" parent="android:TextAppearance">
-        <item name="android:textSize">14sp</item>
-    </style>
-
-    <style name="TextAppearance.Small.Primary" parent="TextAppearance.Small">
-        <item name="android:textColor">@color/colorPrimary</item>
-    </style>
-
-    <style name="TextAppearance.Small.Accent" parent="TextAppearance.Small">
-        <item name="android:textColor">@color/colorAccent</item>
-    </style>
-
-    <style name="TextAppearance.Medium" parent="android:TextAppearance">
-        <item name="android:textSize">16sp</item>
-    </style>
-
-    <style name="TextViewLabel">
-        <item name="fontPath">font/Roboto-Medium.ttf</item>
-        <item name="android:layout_marginStart">@dimen/space_small</item>
-        <item name="android:textAppearance">@style/TextAppearance.Small.Primary</item>
-    </style>
-
-    <style name="TextViewNav">
-        <item name="fontPath">font/Roboto-Medium.ttf</item>
-        <item name="android:textAppearance">@style/TextAppearance.Small.Accent</item>
-    </style>
-
-    <style name="TextViewParagraph">
-        <item name="fontPath">font/Roboto-Regular.ttf</item>
-        <item name="android:textSize">14sp</item>
-        <item name="android:textColor">#444444</item>
-    </style>
-
     <style name="Button">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">match_parent</item>

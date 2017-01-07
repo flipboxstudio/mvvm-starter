@@ -1,13 +1,14 @@
 package id.co.flipbox.mvvmstarter.views.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +19,7 @@ import id.co.flipbox.mvvmstarter.views.fragments.BlankFragment;
 import id.co.flipbox.mvvmstarter.views.fragments.ListFragment;
 
 
-public class ViewPagerActivity extends AppCompatActivity
+public class ViewPagerActivity extends BaseActivity
 {
 
     List<Fragment> mFragments;
@@ -41,6 +42,13 @@ public class ViewPagerActivity extends AppCompatActivity
 
         mTabLayout = (TabLayout) findViewById(R.id.tl_tabs_container);
         mTabLayout.setupWithViewPager(mViewPager);
+
+        //proof of concept that location detection work
+        if (app.mLastLocation != null)
+        {
+            Toast.makeText(this, "lat : " + app.mLastLocation.getLatitude(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "long : " + app.mLastLocation.getLongitude(), Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override
@@ -57,6 +65,8 @@ public class ViewPagerActivity extends AppCompatActivity
         switch (item.getItemId())
         {
             case R.id.action_logout:
+                startActivity(new Intent(ViewPagerActivity.this, AuthActivity.class));
+                finish();
                 break;
             case R.id.action_about:
                 break;

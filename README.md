@@ -56,9 +56,9 @@ Setup included :
 ### ToDo
 
 - [ ] Documentation & Wiki
-- [ ] Location detection
 - [ ] Analytics setup
-- [ ] Custom toolbar & menu
+- [x] Basic Location detection
+- [x] Simple Custom toolbar & menu
 - [x] Android M permissions sample
 - [x] Calendar utils
 - [x] Camera utils

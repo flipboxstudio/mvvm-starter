@@ -13,8 +13,8 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="permission_camera_granted">Permission Granted!</string>
-    <string name="permission_camera_denied">Permission Denied!</string>
+    <string name="permission_granted">Permission Granted!</string>
+    <string name="permission_denied">Permission Denied!</string>
     <string name="search">Search</string>
     <string name="logout">Logout</string>
     <string name="about">About</string>

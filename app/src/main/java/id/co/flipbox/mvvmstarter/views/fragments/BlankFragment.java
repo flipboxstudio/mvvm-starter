@@ -80,7 +80,7 @@ public class BlankFragment extends BaseFragment implements EasyPermissions.Permi
     {
         if (requestCode == I.CAMERA_REQUEST_CODE)
         {
-            Toast.makeText(getContext(), R.string.permission_camera_granted, Toast.LENGTH_LONG).show();
+            Toast.makeText(getContext(), R.string.permission_granted, Toast.LENGTH_LONG).show();
         }
     }
 
@@ -89,7 +89,7 @@ public class BlankFragment extends BaseFragment implements EasyPermissions.Permi
     {
         if (requestCode == I.CAMERA_REQUEST_CODE)
         {
-            Toast.makeText(getContext(), R.string.permission_camera_denied, Toast.LENGTH_LONG).show();
+            Toast.makeText(getContext(), R.string.permission_denied, Toast.LENGTH_LONG).show();
         }
     }
 

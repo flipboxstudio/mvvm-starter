@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
 
     <id.co.flipbox.mvvmstarter.views.customviews.CustomTextView
         style="@style/TextViewParagraph"
@@ -20,7 +20,7 @@
         Initialize it with proper ViewModel and such.
         \n \n
         You can refer to https://docs.google.com/presentation/d/1IyzTFO4-vBxSd-mog7k6yUKP8wVOGFqx7SuUfwY93bk for the style guide"
-        android:textAlignment="center" />
+        android:textAlignment="center"/>
 
     <id.co.flipbox.mvvmstarter.views.customviews.CustomTextView
         android:layout_width="match_parent"
@@ -28,13 +28,13 @@
         android:layout_gravity="center"
         android:gravity="center"
         android:padding="@dimen/space_extra_small"
-        android:text="below are some sample of utils class usage" />
+        android:text="below are some sample of utils class usage"/>
 
     <Button
         android:id="@+id/btn_get_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="GET IMAGE" />
+        android:text="GET IMAGE"/>
 
 </LinearLayout>
