@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import org.greenrobot.eventbus.Subscribe;
 
+import br.com.ilhasoft.support.validation.Validator;
 import id.co.flipbox.mvvmstarter.R;
 import id.co.flipbox.mvvmstarter.data.DataManager;
 import id.co.flipbox.mvvmstarter.data.events.ErrorEvent;
@@ -24,6 +25,7 @@ public class LoginFragment extends BaseFragment
 {
     private static final String TAG = LoginFragment.class.getSimpleName();
     private FragmentLoginBinding               mBinding;
+    private Validator mValidator;
     private OnLoginFragmentInteractionListener mListener;
 
     public LoginFragment ()
@@ -57,6 +59,8 @@ public class LoginFragment extends BaseFragment
     {
         // Inflate the layout for this fragment
         mBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_login, container, false);
+        mValidator = new Validator(mBinding);
+        mValidator.enableFormValidationMode();
 
         initUI();
         initEvent();
@@ -128,9 +132,9 @@ public class LoginFragment extends BaseFragment
     public void submitLogin ()
     {
         final String id       = mBinding.tilUserIdWrapper.getEditText().getText().toString();
-        final String password = mBinding.tilPasswordWrapper.getEditText().getText().toString();
+        final String password = mBinding.etPassword.getText().toString();
 
-        if (!validate(id, password))
+        if (!mValidator.validate())
         {
             return;
         }
@@ -138,32 +142,14 @@ public class LoginFragment extends BaseFragment
         //precaution for double click
         mBinding.btnLogin.setEnabled(false);
 
-        showLoading(S.loading_auth);
+        mBinding.loginLoading.showLoading(true, "Signing in...");
         DataManager.login(id, password);
-    }
-
-    public boolean validate (final String id, final String password)
-    {
-        boolean valid = true;
-
-        if (id.length() == 0)
-        {
-            mBinding.tilUserIdWrapper.setError(S.error_id_kosong);
-            valid = false;
-        }
-        if (password.length() == 0)
-        {
-            mBinding.tilPasswordWrapper.setError(S.error_password_kosong);
-            valid = false;
-        }
-
-        return valid;
     }
 
     @Subscribe
     public void onSuccess (LoginSuccessEvent event)
     {
-        hideLoading();
+        mBinding.loginLoading.showLoading(false);
         mBinding.btnLogin.setEnabled(true);
         Intent intent = new Intent(getContext(), ViewPagerActivity.class);
         startActivity(intent);
@@ -173,7 +159,7 @@ public class LoginFragment extends BaseFragment
     @Subscribe
     public void onFailed (ErrorEvent event)
     {
-        hideLoading();
+        mBinding.loginLoading.showLoading(false);
         Toast.makeText(getContext(), event.getMessage(), Toast.LENGTH_LONG).show();
         mBinding.btnLogin.setEnabled(true);
     }

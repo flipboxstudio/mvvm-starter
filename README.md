@@ -16,6 +16,8 @@ Libraries used :
 * EasyPermission `pub.devrel:easypermissions:0.2.1`
 * Hawk `com.orhanobut:hawk:2.0.1`
 * Android Libraries ( `appcompat`, `design support`, `data binding`, etc )
+* Loading Layout `com.github.flipboxstudio:sosoito:v1.02`
+* Data Binding Validator  `com.github.Ilhasoft:data-binding-validator:0.6.4`
 
 --
 
@@ -30,7 +32,7 @@ Setup included :
 	* Using Retrofit & ResponseInterceptor for request & response handling
 	* Dummy API using `https://jsonplaceholder.typicode.com`
 	* `AuthActivity` as Fragments Container
-	* `LoginFragment` as Login UI
+	* `LoginFragment` as Login UI with data binding validation
 	* `ForgotPasswordFragment` as Forgot Password UI
 * RecyclerView Sample
 	* Sample recyclerview implementation using viewholder & databinding
@@ -53,7 +55,7 @@ Setup included :
 	* Calendar Utils : Parse & display Calendar object into various format
 	
 --
-![screenshots](https://puu.sh/swReQ/d7b2f101f4.jpg "Screenshots")
+![screenshots](https://puu.sh/v7Um1/e36c48b42f.png "Screenshots")
 --
 
 ### ToDo

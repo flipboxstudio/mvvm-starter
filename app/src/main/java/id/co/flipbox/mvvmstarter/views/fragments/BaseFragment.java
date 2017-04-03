@@ -48,19 +48,4 @@ public abstract class BaseFragment extends Fragment
         }
     }
 
-    protected void showLoading (String message)
-    {
-        progressDialog.setIndeterminate(true);
-        progressDialog.setMessage(message);
-        progressDialog.show();
-    }
-
-    protected void hideLoading ()
-    {
-        if (progressDialog.isShowing())
-        {
-            progressDialog.dismiss();
-        }
-    }
-
 }

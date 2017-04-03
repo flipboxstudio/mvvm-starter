@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 25
-    buildToolsVersion '25.0.0'
+    buildToolsVersion '25.0.2'
 
     defaultConfig {
         applicationId "id.co.flipbox.mvvmstarter"
@@ -32,16 +32,18 @@ dependencies {
     })
     testCompile 'junit:junit:4.12'
 
-    compile 'com.android.support:appcompat-v7:25.2.0'
-    compile 'com.android.support:support-v4:25.2.0'
-    compile 'com.android.support:design:25.2.0'
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support:support-v4:25.3.1'
+    compile 'com.android.support:design:25.3.1'
     compile 'com.google.android.gms:play-services-location:10.2.1'
 
     //marshmallow & up permission
     compile 'pub.devrel:easypermissions:0.2.1'
 
     //loader
-    compile 'com.github.suhafer:sosoito:1.01'
+    compile 'com.github.flipboxstudio:sosoito:v1.02'
+    //validator
+    compile 'com.github.Ilhasoft:data-binding-validator:0.6.4'
 
     //network-related libraries
     compile 'com.google.code.gson:gson:2.7'
