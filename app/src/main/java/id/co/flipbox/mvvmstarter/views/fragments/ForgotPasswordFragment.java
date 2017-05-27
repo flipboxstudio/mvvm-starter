@@ -109,7 +109,7 @@ public class ForgotPasswordFragment extends BaseFragment
         mBinding.btnForgotSubmit.setEnabled(false);
 
         mBinding.loadingForgot.showLoading(true);
-        DataManager.forgotPassword(id);
+        DataManager.can().forgotPassword(id);
     }
 
     public boolean validate (String email)

@@ -1,7 +1,6 @@
 package id.co.flipbox.mvvmstarter.views.fragments;
 
 
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,21 +10,21 @@ import android.view.inputmethod.InputMethodManager;
 
 import org.greenrobot.eventbus.EventBus;
 
+import id.co.flipbox.mvvmstarter.data.DataManager;
+
 /**
  * A simple {@link Fragment} subclass.
  */
 public abstract class BaseFragment extends Fragment
 {
 
-    EventBus       event;
-    ProgressDialog progressDialog;
+    EventBus    event;
 
     @Override
     public void onCreate (@Nullable Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         event = EventBus.getDefault();
-        progressDialog = new ProgressDialog(getActivity());
     }
 
     /**

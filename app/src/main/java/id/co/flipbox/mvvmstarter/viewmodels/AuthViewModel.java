@@ -12,6 +12,6 @@ public class AuthViewModel extends BaseViewModel
 
     public void login ()
     {
-        DataManager.login(userId, password);
+        DataManager.can().login(userId, password);
     }
 }

@@ -24,8 +24,9 @@ import id.co.flipbox.mvvmstarter.views.activities.ViewPagerActivity;
 public class LoginFragment extends BaseFragment
 {
     private static final String TAG = LoginFragment.class.getSimpleName();
+
     private FragmentLoginBinding               mBinding;
-    private Validator mValidator;
+    private Validator                          mValidator;
     private OnLoginFragmentInteractionListener mListener;
 
     public LoginFragment ()
@@ -143,7 +144,7 @@ public class LoginFragment extends BaseFragment
         mBinding.btnLogin.setEnabled(false);
 
         mBinding.loginLoading.showLoading(true, "Signing in...");
-        DataManager.login(id, password);
+        DataManager.can().login(id, password);
     }
 
     @Subscribe

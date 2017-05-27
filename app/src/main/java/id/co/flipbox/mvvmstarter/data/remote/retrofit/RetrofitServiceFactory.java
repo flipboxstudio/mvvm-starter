@@ -32,9 +32,9 @@ public class RetrofitServiceFactory
     public static <S> S createService (Class<S> serviceClass)
     {
         final String authHeader;
-        if (DataManager.getUserToken() != null)
+        if (DataManager.can().getUserToken() != null)
         {
-            authHeader = "Bearer " + DataManager.getUserToken();
+            authHeader = "Bearer " + DataManager.can().getUserToken();
         }
         else
         {
