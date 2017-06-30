@@ -25,7 +25,7 @@ public class UserAPI extends BaseAPI implements CRUDContract<User, Integer>
             @Override
             public void onResponse (Call<List<User>> call, Response<List<User>> response)
             {
-                handleResponse(response, new GetUserListSuccessEvent());
+                handleResponse(response, new GetUserListSuccessEvent(response.body()));
             }
 
             @Override
@@ -39,7 +39,7 @@ public class UserAPI extends BaseAPI implements CRUDContract<User, Integer>
     @Override
     public void create (User obj)
     {
-        // TODO: 5/27/17 implement your own code 
+        // TODO: implement your own code 
     }
 
     @Override
@@ -64,12 +64,12 @@ public class UserAPI extends BaseAPI implements CRUDContract<User, Integer>
     @Override
     public void update (User obj, Integer id)
     {
-        // TODO: 5/27/17 implement your own code 
+        // TODO: implement your own code 
     }
 
     @Override
     public void delete (Integer id)
     {
-        // TODO: 5/27/17 implement your own code
+        // TODO: implement your own code
     }
 }

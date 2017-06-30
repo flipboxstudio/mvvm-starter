@@ -42,7 +42,7 @@ public class ViewPagerAdapter extends FragmentPagerAdapter
     @Override
     public CharSequence getPageTitle (int position)
     {
-        // TODO: 11/27/16 implement your own page title.
+        // TODO: implement your own page title.
         return mFragments.get(position).getClass().getSimpleName();
     }
 }

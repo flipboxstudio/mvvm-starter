@@ -16,7 +16,7 @@ public class DummyDataFactory
         List<User> lUser = new ArrayList<>();
         for (int i = 0; i < 5; i++)
         {
-            lUser.add(new User(i, String.format("nama user %d", i)));
+            lUser.add(new User(i, String.format("nama user %d", i), String.format("email%d@email.com", i)));
         }
         return lUser;
     }

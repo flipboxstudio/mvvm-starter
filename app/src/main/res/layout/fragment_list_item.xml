@@ -18,14 +18,16 @@
         <id.co.flipbox.mvvmstarter.views.customviews.CustomTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@{user.id}"
-            tools:text="User ID"/>
+            android:text="@{user.name}"
+            android:textAllCaps="true"
+            android:textColor="@color/colorPrimaryDark"
+            tools:text="User Name"/>
 
         <id.co.flipbox.mvvmstarter.views.customviews.CustomTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@{user.name}"
-            tools:text="Username"/>
+            android:text="@{user.email}"
+            tools:text="User Email"/>
 
     </LinearLayout>
 </layout>

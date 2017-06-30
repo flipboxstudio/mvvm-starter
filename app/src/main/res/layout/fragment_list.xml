@@ -8,16 +8,16 @@
             type="id.co.flipbox.mvvmstarter.viewmodels.UserListViewModel"/>
     </data>
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                  android:layout_width="match_parent"
-                  android:layout_height="match_parent"
-                  android:orientation="vertical">
+    <id.co.flipbox.sosoito.LoadingLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/ll_user_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/rv_content"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="@{users.listVisibility}"/>
+            android:layout_height="wrap_content"/>
 
-    </LinearLayout>
+    </id.co.flipbox.sosoito.LoadingLayout>
 </layout>

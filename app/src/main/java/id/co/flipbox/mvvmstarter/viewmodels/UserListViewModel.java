@@ -8,5 +8,5 @@ import android.view.View;
 
 public class UserListViewModel extends BaseViewModel
 {
-    public int listVisibility = View.VISIBLE;
+    // TODO: implement your own business logic
 }

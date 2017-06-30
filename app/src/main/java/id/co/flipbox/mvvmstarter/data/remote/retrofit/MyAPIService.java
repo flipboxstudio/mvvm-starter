@@ -21,6 +21,7 @@ public interface MyAPIService
 
     /*
     * below are dummy URLs. Please change it into your API endpoints
+    * TODO: replace below URLs with your own
     */
 
     @GET ("users/{id}")

@@ -20,6 +20,7 @@ import id.co.flipbox.mvvmstarter.data.events.LoginSuccessEvent;
 import id.co.flipbox.mvvmstarter.databinding.FragmentLoginBinding;
 import id.co.flipbox.mvvmstarter.utils.constants.S;
 import id.co.flipbox.mvvmstarter.views.activities.ViewPagerActivity;
+import id.co.flipbox.sosoito.LoadingUtils;
 
 public class LoginFragment extends BaseFragment
 {
@@ -143,14 +144,14 @@ public class LoginFragment extends BaseFragment
         //precaution for double click
         mBinding.btnLogin.setEnabled(false);
 
-        mBinding.loginLoading.showLoading(true, "Signing in...");
+        mBinding.loginLoading.showCustomLoading(true, "Signing in...");
         DataManager.can().login(id, password);
     }
 
     @Subscribe
     public void onSuccess (LoginSuccessEvent event)
     {
-        mBinding.loginLoading.showLoading(false);
+        mBinding.loginLoading.showCustomLoading(false);
         mBinding.btnLogin.setEnabled(true);
         Intent intent = new Intent(getContext(), ViewPagerActivity.class);
         startActivity(intent);
@@ -160,7 +161,7 @@ public class LoginFragment extends BaseFragment
     @Subscribe
     public void onFailed (ErrorEvent event)
     {
-        mBinding.loginLoading.showLoading(false);
+        mBinding.loginLoading.showCustomLoading(false);
         Toast.makeText(getContext(), event.getMessage(), Toast.LENGTH_LONG).show();
         mBinding.btnLogin.setEnabled(true);
     }

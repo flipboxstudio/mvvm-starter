@@ -46,13 +46,13 @@ public abstract class BaseActivity extends AppCompatActivity implements GoogleAp
     @Override
     public void onConnectionSuspended (int i)
     {
-        // TODO: 1/8/17 add warning on connection suspended
+        // TODO: add warning on connection suspended
     }
 
     @Override
     public void onConnectionFailed (@NonNull ConnectionResult result)
     {
-        // TODO: 1/8/17 add error message on connection failed
+        // TODO: add error message on connection failed
     }
 
     public void initLocationDetection ()

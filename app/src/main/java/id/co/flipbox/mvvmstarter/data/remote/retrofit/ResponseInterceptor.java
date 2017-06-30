@@ -34,7 +34,7 @@ public class ResponseInterceptor implements Interceptor
     public Response intercept (Chain chain) throws IOException
     {
         Response lResponse = chain.proceed(chain.request());
-        // TODO: 8/3/16 implement your intercept logic below
+        // TODO: implement your intercept logic below
 
         if (lResponse.code() == 401)
         {

@@ -37,4 +37,11 @@ public class UserViewModel extends BaseViewModel implements UserViewModelInputs,
         return String.valueOf(mUser.getName());
     }
 
+    @Override
+    public String getEmail ()
+    {
+        return String.valueOf(mUser.getEmail());
+    }
+
+
 }

@@ -12,7 +12,7 @@ public class DataManager implements DataManagerType
 {
     private static DataManager dm;
 
-    public static DataManager can () // or use (?)
+    public static DataManager can () // or use, or call (?)
     {
         if (dm == null)
         {
