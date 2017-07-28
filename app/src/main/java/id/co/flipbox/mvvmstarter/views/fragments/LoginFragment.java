@@ -4,23 +4,23 @@ import android.content.Context;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Toast;
 
-import org.greenrobot.eventbus.Subscribe;
+import com.google.gson.JsonObject;
 
 import br.com.ilhasoft.support.validation.Validator;
 import id.co.flipbox.mvvmstarter.R;
 import id.co.flipbox.mvvmstarter.data.DataManager;
-import id.co.flipbox.mvvmstarter.data.events.ErrorEvent;
-import id.co.flipbox.mvvmstarter.data.events.LoginSuccessEvent;
 import id.co.flipbox.mvvmstarter.databinding.FragmentLoginBinding;
 import id.co.flipbox.mvvmstarter.utils.constants.S;
 import id.co.flipbox.mvvmstarter.views.activities.ViewPagerActivity;
-import id.co.flipbox.sosoito.LoadingUtils;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.functions.Consumer;
 
 public class LoginFragment extends BaseFragment
 {
@@ -108,7 +108,6 @@ public class LoginFragment extends BaseFragment
     public void onStart ()
     {
         super.onStart();
-        event.register(this);
     }
 
     @Override
@@ -121,7 +120,6 @@ public class LoginFragment extends BaseFragment
     public void onStop ()
     {
         super.onStop();
-        event.unregister(this);
     }
 
     @Override
@@ -145,25 +143,36 @@ public class LoginFragment extends BaseFragment
         mBinding.btnLogin.setEnabled(false);
 
         mBinding.loginLoading.showCustomLoading(true, "Signing in...");
-        DataManager.can().login(id, password);
-    }
 
-    @Subscribe
-    public void onSuccess (LoginSuccessEvent event)
-    {
-        mBinding.loginLoading.showCustomLoading(false);
-        mBinding.btnLogin.setEnabled(true);
-        Intent intent = new Intent(getContext(), ViewPagerActivity.class);
-        startActivity(intent);
-        getActivity().finish();
-    }
-
-    @Subscribe
-    public void onFailed (ErrorEvent event)
-    {
-        mBinding.loginLoading.showCustomLoading(false);
-        Toast.makeText(getContext(), event.getMessage(), Toast.LENGTH_LONG).show();
-        mBinding.btnLogin.setEnabled(true);
+        DataManager.can().login(id, password)
+                   .observeOn(AndroidSchedulers.mainThread())
+                   .doOnSuccess(new Consumer<JsonObject>()
+                   {
+                       @Override
+                       public void accept (JsonObject object) throws Exception
+                       {
+                           // do on success
+                           Log.d("login", "do on success");
+                           mBinding.loginLoading.showCustomLoading(false);
+                           mBinding.btnLogin.setEnabled(true);
+                           Intent intent = new Intent(getContext(), ViewPagerActivity.class);
+                           startActivity(intent);
+                           getActivity().finish();
+                       }
+                   })
+                   .doOnError(new Consumer<Throwable>()
+                   {
+                       @Override
+                       public void accept (Throwable throwable) throws Exception
+                       {
+                           // do on error
+                           Log.d("login", "do on error");
+                           mBinding.loginLoading.showCustomLoading(false);
+                           Toast.makeText(getContext(), throwable.getMessage(), Toast.LENGTH_LONG).show();
+                           mBinding.btnLogin.setEnabled(true);
+                       }
+                   })
+                   .subscribe();
     }
 
     public interface OnLoginFragmentInteractionListener

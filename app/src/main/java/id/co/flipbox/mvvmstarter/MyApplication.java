@@ -7,6 +7,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.orhanobut.hawk.Hawk;
 
 import id.co.flipbox.mvvmstarter.data.remote.retrofit.MyAPIService;
 import id.co.flipbox.mvvmstarter.data.remote.retrofit.RetrofitServiceFactory;
@@ -39,6 +40,7 @@ public class MyApplication extends Application
 
         sApp = this;
         mAPIService = RetrofitServiceFactory.createService(MyAPIService.class);
+        Hawk.init(getApplicationContext()).build();
     }
 
     public boolean isNetworkAvailable ()

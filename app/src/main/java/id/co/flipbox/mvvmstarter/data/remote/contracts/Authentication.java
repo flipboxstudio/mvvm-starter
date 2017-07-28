@@ -1,12 +1,18 @@
 package id.co.flipbox.mvvmstarter.data.remote.contracts;
 
+import com.google.gson.JsonObject;
+
+import io.reactivex.Maybe;
+
 /**
  * Created by bukhoriaqid on 5/27/17.
  */
 
 public interface Authentication
 {
-    void login (String id, String password);
+    Maybe<JsonObject> login (String id, String password);
+
     void logout ();
-    void forgotPassword (String id);
+
+    Maybe<JsonObject> forgotPassword (String id);
 }

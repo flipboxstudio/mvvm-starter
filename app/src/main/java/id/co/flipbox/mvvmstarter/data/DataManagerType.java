@@ -1,5 +1,12 @@
 package id.co.flipbox.mvvmstarter.data;
 
+import com.google.gson.JsonObject;
+
+import java.util.List;
+
+import id.co.flipbox.mvvmstarter.models.User;
+import io.reactivex.Maybe;
+
 /**
  * Created by bukhoriaqid on 5/27/17.
  */
@@ -12,11 +19,15 @@ public interface DataManagerType
      * GROUP THE METHODS BASED ON THE MODULE.
      */
 
-    void login (String id, String password);
-    void logout ();
-    void forgotPassword (String id);
+    Maybe<JsonObject> login (String id, String password);
 
-    void getUserList ();
-    void getUser (Integer id);
-    String getUserToken();
+    void logout ();
+
+    Maybe<JsonObject> forgotPassword (String id);
+
+    Maybe<List<User>> getUserList ();
+
+    Maybe<User> getUser (Integer id);
+
+    String getUserToken ();
 }

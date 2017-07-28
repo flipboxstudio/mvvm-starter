@@ -8,14 +8,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import org.greenrobot.eventbus.Subscribe;
+import com.google.gson.JsonObject;
 
 import id.co.flipbox.mvvmstarter.R;
 import id.co.flipbox.mvvmstarter.data.DataManager;
-import id.co.flipbox.mvvmstarter.data.events.ErrorEvent;
-import id.co.flipbox.mvvmstarter.data.events.ForgotPasswordSuccessEvent;
 import id.co.flipbox.mvvmstarter.databinding.FragmentForgotPasswordBinding;
 import id.co.flipbox.mvvmstarter.utils.constants.S;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.functions.Consumer;
 
 public class ForgotPasswordFragment extends BaseFragment
 {
@@ -80,14 +80,12 @@ public class ForgotPasswordFragment extends BaseFragment
     public void onStart ()
     {
         super.onStart();
-        event.register(this);
     }
 
     @Override
     public void onStop ()
     {
         super.onStop();
-        event.unregister(this);
     }
 
     @Override
@@ -109,7 +107,30 @@ public class ForgotPasswordFragment extends BaseFragment
         mBinding.btnForgotSubmit.setEnabled(false);
 
         mBinding.loadingForgot.showLoading(true);
-        DataManager.can().forgotPassword(id);
+
+        DataManager.can().forgotPassword(id).observeOn(AndroidSchedulers.mainThread())
+                   .doOnSuccess(new Consumer<JsonObject>()
+                   {
+                       @Override
+                       public void accept (JsonObject object) throws Exception
+                       {
+                           mBinding.loadingForgot.showLoading(false);
+                           mListener.showLoginForm();
+                           Toast.makeText(getContext(), S.success_lupa_password, Toast.LENGTH_SHORT).show();
+                           mBinding.btnForgotSubmit.setEnabled(true);
+                       }
+                   })
+                   .doOnError(new Consumer<Throwable>()
+                   {
+                       @Override
+                       public void accept (Throwable throwable) throws Exception
+                       {
+                           mBinding.loadingForgot.showLoading(false);
+                           Toast.makeText(getContext(), throwable.getMessage(), Toast.LENGTH_SHORT).show();
+                           mBinding.btnForgotSubmit.setEnabled(true);
+                       }
+                   })
+                   .subscribe();
     }
 
     public boolean validate (String email)
@@ -122,23 +143,6 @@ public class ForgotPasswordFragment extends BaseFragment
         }
 
         return valid;
-    }
-
-    @Subscribe
-    public void onSuccess (ForgotPasswordSuccessEvent event)
-    {
-        mBinding.loadingForgot.showLoading(false);
-        mListener.showLoginForm();
-        Toast.makeText(getContext(), S.success_lupa_password, Toast.LENGTH_SHORT).show();
-        mBinding.btnForgotSubmit.setEnabled(true);
-    }
-
-    @Subscribe
-    public void onFailed (ErrorEvent event)
-    {
-        mBinding.loadingForgot.showLoading(false);
-        Toast.makeText(getContext(), event.getMessage(), Toast.LENGTH_SHORT).show();
-        mBinding.btnForgotSubmit.setEnabled(true);
     }
 
     public interface OnForgotFragmentInteractionListener

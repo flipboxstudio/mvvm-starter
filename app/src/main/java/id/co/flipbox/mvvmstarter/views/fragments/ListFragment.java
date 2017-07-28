@@ -9,19 +9,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import org.greenrobot.eventbus.Subscribe;
-
+import java.util.ArrayList;
 import java.util.List;
 
 import id.co.flipbox.mvvmstarter.R;
 import id.co.flipbox.mvvmstarter.data.DataManager;
-import id.co.flipbox.mvvmstarter.data.events.ErrorEvent;
-import id.co.flipbox.mvvmstarter.data.events.GetUserListSuccessEvent;
 import id.co.flipbox.mvvmstarter.databinding.FragmentListBinding;
 import id.co.flipbox.mvvmstarter.models.User;
 import id.co.flipbox.mvvmstarter.utils.DummyDataFactory;
 import id.co.flipbox.mvvmstarter.viewmodels.UserListViewModel;
 import id.co.flipbox.mvvmstarter.views.adapters.ListAdapter;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.functions.Consumer;
+import retrofit2.HttpException;
 
 /**
  * Created by bukhoriaqid on 11/27/16.
@@ -51,7 +51,38 @@ public class ListFragment extends BaseFragment
         mBinding.rvContent.setAdapter(new ListAdapter(mUsers));
 
         mBinding.llUserList.showCustomLoading(true, "Loading User List...");
-        DataManager.can().getUserList();
+
+        DataManager.can().getUserList().observeOn(AndroidSchedulers.mainThread())
+                   .defaultIfEmpty(new ArrayList<User>())
+                   .doOnSuccess(new Consumer<List<User>>()
+                   {
+                       @Override
+                       public void accept (List<User> users) throws Exception
+                       {
+                           mUsers.clear();
+                           mUsers.addAll(users);
+                           mBinding.rvContent.getAdapter().notifyDataSetChanged();
+                           mBinding.llUserList.showCustomLoading(false);
+                           if (mUsers.size() == 0)
+                           {
+                               mBinding.llUserList.showEmptyView(true);
+                           }
+                       }
+                   })
+                   .doOnError(new Consumer<Throwable>()
+                   {
+                       @Override
+                       public void accept (Throwable throwable) throws Exception
+                       {
+                           if (throwable instanceof HttpException)
+                           {
+                               // TODO: 7/28/17 parse to error object
+                           }
+                           mBinding.llUserList.showCustomLoading(false);
+                           Toast.makeText(getContext(), throwable.getMessage(), Toast.LENGTH_LONG).show();
+                       }
+                   })
+                   .subscribe();
 
         return mBinding.getRoot();
     }
@@ -72,33 +103,12 @@ public class ListFragment extends BaseFragment
     public void onStart ()
     {
         super.onStart();
-        event.register(this);
     }
 
     @Override
     public void onStop ()
     {
         super.onStop();
-        event.unregister(this);
     }
 
-    @Subscribe
-    public void onSuccess (GetUserListSuccessEvent event)
-    {
-        mUsers.clear();
-        mUsers.addAll(event.getUsers());
-        mBinding.rvContent.getAdapter().notifyDataSetChanged();
-        mBinding.llUserList.showCustomLoading(false);
-        if (mUsers.size() == 0)
-        {
-            mBinding.llUserList.showEmptyView(true);
-        }
-    }
-
-    @Subscribe
-    public void onFailed (ErrorEvent event)
-    {
-        mBinding.llUserList.showCustomLoading(false);
-        Toast.makeText(getContext(), event.getMessage(), Toast.LENGTH_LONG).show();
-    }
 }
