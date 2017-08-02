@@ -109,7 +109,7 @@ public class ForgotPasswordFragment extends BaseFragment
         mBinding.loadingForgot.showLoading(true);
 
         DataManager.can().forgotPassword(id).observeOn(AndroidSchedulers.mainThread())
-                   .doOnSuccess(new Consumer<JsonObject>()
+                   .subscribe(new Consumer<JsonObject>()
                    {
                        @Override
                        public void accept (JsonObject object) throws Exception
@@ -119,9 +119,7 @@ public class ForgotPasswordFragment extends BaseFragment
                            Toast.makeText(getContext(), S.success_lupa_password, Toast.LENGTH_SHORT).show();
                            mBinding.btnForgotSubmit.setEnabled(true);
                        }
-                   })
-                   .doOnError(new Consumer<Throwable>()
-                   {
+                   }, new Consumer<Throwable>() {
                        @Override
                        public void accept (Throwable throwable) throws Exception
                        {
@@ -129,8 +127,7 @@ public class ForgotPasswordFragment extends BaseFragment
                            Toast.makeText(getContext(), throwable.getMessage(), Toast.LENGTH_SHORT).show();
                            mBinding.btnForgotSubmit.setEnabled(true);
                        }
-                   })
-                   .subscribe();
+                   });
     }
 
     public boolean validate (String email)

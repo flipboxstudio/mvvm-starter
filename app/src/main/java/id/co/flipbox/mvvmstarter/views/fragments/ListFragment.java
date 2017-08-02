@@ -54,7 +54,7 @@ public class ListFragment extends BaseFragment
 
         DataManager.can().getUserList().observeOn(AndroidSchedulers.mainThread())
                    .defaultIfEmpty(new ArrayList<User>())
-                   .doOnSuccess(new Consumer<List<User>>()
+                   .subscribe(new Consumer<List<User>>()
                    {
                        @Override
                        public void accept (List<User> users) throws Exception
@@ -68,9 +68,7 @@ public class ListFragment extends BaseFragment
                                mBinding.llUserList.showEmptyView(true);
                            }
                        }
-                   })
-                   .doOnError(new Consumer<Throwable>()
-                   {
+                   }, new Consumer<Throwable>() {
                        @Override
                        public void accept (Throwable throwable) throws Exception
                        {
@@ -81,8 +79,7 @@ public class ListFragment extends BaseFragment
                            mBinding.llUserList.showCustomLoading(false);
                            Toast.makeText(getContext(), throwable.getMessage(), Toast.LENGTH_LONG).show();
                        }
-                   })
-                   .subscribe();
+                   });
 
         return mBinding.getRoot();
     }

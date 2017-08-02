@@ -146,33 +146,26 @@ public class LoginFragment extends BaseFragment
 
         DataManager.can().login(id, password)
                    .observeOn(AndroidSchedulers.mainThread())
-                   .doOnSuccess(new Consumer<JsonObject>()
+                   .subscribe(new Consumer<JsonObject>()
                    {
                        @Override
                        public void accept (JsonObject object) throws Exception
                        {
-                           // do on success
-                           Log.d("login", "do on success");
                            mBinding.loginLoading.showCustomLoading(false);
                            mBinding.btnLogin.setEnabled(true);
                            Intent intent = new Intent(getContext(), ViewPagerActivity.class);
                            startActivity(intent);
                            getActivity().finish();
                        }
-                   })
-                   .doOnError(new Consumer<Throwable>()
-                   {
+                   }, new Consumer<Throwable>() {
                        @Override
                        public void accept (Throwable throwable) throws Exception
                        {
-                           // do on error
-                           Log.d("login", "do on error");
                            mBinding.loginLoading.showCustomLoading(false);
                            Toast.makeText(getContext(), throwable.getMessage(), Toast.LENGTH_LONG).show();
                            mBinding.btnLogin.setEnabled(true);
                        }
-                   })
-                   .subscribe();
+                   });
     }
 
     public interface OnLoginFragmentInteractionListener
