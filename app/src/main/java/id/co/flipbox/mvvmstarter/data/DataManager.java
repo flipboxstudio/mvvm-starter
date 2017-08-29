@@ -1,8 +1,15 @@
 package id.co.flipbox.mvvmstarter.data;
 
+import com.google.gson.JsonObject;
+
+import java.util.List;
+
 import id.co.flipbox.mvvmstarter.data.local.UserStorage;
 import id.co.flipbox.mvvmstarter.data.remote.AuthAPI;
 import id.co.flipbox.mvvmstarter.data.remote.UserAPI;
+import id.co.flipbox.mvvmstarter.models.User;
+import io.reactivex.Maybe;
+import io.reactivex.functions.Consumer;
 
 /**
  * Created by bukhoriaqid on 11/10/16.
@@ -26,9 +33,9 @@ public class DataManager implements DataManagerType
     private static UserStorage sUserStorage = new UserStorage();
 
     @Override
-    public void login (String id, String password)
+    public Maybe<JsonObject> login (String id, String password)
     {
-        sAuthAPI.login(id, password);
+        return sAuthAPI.login(id, password);
     }
 
     @Override
@@ -38,18 +45,32 @@ public class DataManager implements DataManagerType
     }
 
     @Override
-    public void forgotPassword (String id) { sAuthAPI.forgotPassword(id);}
+    public Maybe<JsonObject> forgotPassword (String id) { return sAuthAPI.forgotPassword(id);}
 
     @Override
-    public void getUserList ()
+    public Maybe<List<User>> getUserList ()
     {
-        sUserAPI.getList();
+        return Maybe.concat(sUserStorage.getList(), sUserAPI.getList().doOnSuccess(new Consumer<List<User>>()
+        {
+            @Override
+            public void accept (List<User> users) throws Exception
+            {
+                sUserStorage.addAll(users);
+            }
+        })).firstElement();
     }
 
     @Override
-    public void getUser (Integer id)
+    public Maybe<User> getUser (Integer id)
     {
-        sUserAPI.read(id);
+        return Maybe.concat(sUserStorage.get(id), sUserStorage.get(id).doOnSuccess(new Consumer<User>()
+        {
+            @Override
+            public void accept (User user) throws Exception
+            {
+                sUserStorage.add(user);
+            }
+        })).firstElement();
     }
 
     @Override
