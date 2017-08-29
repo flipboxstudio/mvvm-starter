@@ -68,6 +68,7 @@ Setup included :
 - [ ] Documentation & Wiki
 - [ ] Analytics setup
 - [ ] RxJava 2 RetryWhen sample
+- [x] JWT Library & Utils
 - [x] Data validation
 - [x] Basic Location detection
 - [x] Simple Custom toolbar & menu
