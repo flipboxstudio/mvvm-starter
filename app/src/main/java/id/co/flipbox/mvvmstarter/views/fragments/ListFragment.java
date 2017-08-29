@@ -17,6 +17,7 @@ import id.co.flipbox.mvvmstarter.data.DataManager;
 import id.co.flipbox.mvvmstarter.databinding.FragmentListBinding;
 import id.co.flipbox.mvvmstarter.models.User;
 import id.co.flipbox.mvvmstarter.utils.DummyDataFactory;
+import id.co.flipbox.mvvmstarter.utils.RetrofitErrorAdapter;
 import id.co.flipbox.mvvmstarter.viewmodels.UserListViewModel;
 import id.co.flipbox.mvvmstarter.views.adapters.ListAdapter;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -72,12 +73,9 @@ public class ListFragment extends BaseFragment
                        @Override
                        public void accept (Throwable throwable) throws Exception
                        {
-                           if (throwable instanceof HttpException)
-                           {
-                               // TODO: 7/28/17 parse to error object
-                           }
+                           RetrofitErrorAdapter error = new RetrofitErrorAdapter(throwable);
+                           Toast.makeText(getContext(), error.getMessage(), Toast.LENGTH_LONG).show();
                            mBinding.llUserList.showCustomLoading(false);
-                           Toast.makeText(getContext(), throwable.getMessage(), Toast.LENGTH_LONG).show();
                        }
                    });
 

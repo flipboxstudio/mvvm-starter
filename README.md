@@ -35,6 +35,7 @@ Setup included :
 	* `AuthActivity` as Fragments Container
 	* `LoginFragment` as Login UI with data binding validation
 	* `ForgotPasswordFragment` as Forgot Password UI
+	* `RetrofitErrorAdapter` to handle retrofit throwable error
 * RecyclerView Sample
 	* Sample recyclerview implementation using viewholder & databinding
 	* Using `User` as dummy object representation
@@ -68,6 +69,7 @@ Setup included :
 - [ ] Documentation & Wiki
 - [ ] Analytics setup
 - [ ] RxJava 2 RetryWhen sample
+- [x] Retrofit Error Handler & sample
 - [x] JWT Library & Utils
 - [x] Data validation
 - [x] Basic Location detection
