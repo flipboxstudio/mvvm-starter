@@ -2,14 +2,11 @@ package id.co.flipbox.mvvmstarter.data.remote;
 
 import java.util.List;
 
-import id.co.flipbox.mvvmstarter.data.events.ErrorEvent;
-import id.co.flipbox.mvvmstarter.data.events.GetUserListSuccessEvent;
-import id.co.flipbox.mvvmstarter.data.events.GetUserSuccessEvent;
 import id.co.flipbox.mvvmstarter.data.remote.contracts.CRUDContract;
 import id.co.flipbox.mvvmstarter.models.User;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
+import id.co.flipbox.mvvmstarter.utils.constants.K;
+import io.reactivex.Maybe;
+import io.reactivex.schedulers.Schedulers;
 
 /**
  * Created by bukhoriaqid on 5/27/17.
@@ -18,22 +15,9 @@ import retrofit2.Response;
 public class UserAPI extends BaseAPI implements CRUDContract<User, Integer>
 {
     @Override
-    public void getList ()
+    public Maybe<List<User>> getList ()
     {
-        app.mAPIService.getUsers().enqueue(new Callback<List<User>>()
-        {
-            @Override
-            public void onResponse (Call<List<User>> call, Response<List<User>> response)
-            {
-                handleResponse(response, new GetUserListSuccessEvent(response.body()));
-            }
-
-            @Override
-            public void onFailure (Call<List<User>> call, Throwable t)
-            {
-                event.post(new ErrorEvent(t));
-            }
-        });
+        return app.mAPIService.getUsers().retry(K.MAX_RETRIES).subscribeOn(Schedulers.io());
     }
 
     @Override
@@ -43,22 +27,10 @@ public class UserAPI extends BaseAPI implements CRUDContract<User, Integer>
     }
 
     @Override
-    public void read (Integer id)
+    public Maybe<User> read (Integer id)
     {
-        app.mAPIService.getUser(id.toString()).enqueue(new Callback<User>()
-        {
-            @Override
-            public void onResponse (Call<User> call, Response<User> response)
-            {
-                handleResponse(response, new GetUserSuccessEvent());
-            }
+        return app.mAPIService.getUser(id.toString()).retry(K.MAX_RETRIES).subscribeOn(Schedulers.io());
 
-            @Override
-            public void onFailure (Call<User> call, Throwable t)
-            {
-                event.post(new ErrorEvent(t));
-            }
-        });
     }
 
     @Override

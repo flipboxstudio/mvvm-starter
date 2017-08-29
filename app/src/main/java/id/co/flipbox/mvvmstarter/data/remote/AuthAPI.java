@@ -2,13 +2,20 @@ package id.co.flipbox.mvvmstarter.data.remote;
 
 import com.google.gson.JsonObject;
 
-import id.co.flipbox.mvvmstarter.data.events.ErrorEvent;
-import id.co.flipbox.mvvmstarter.data.events.ForgotPasswordSuccessEvent;
-import id.co.flipbox.mvvmstarter.data.events.LoginSuccessEvent;
+import org.reactivestreams.Publisher;
+
+import java.sql.Time;
+import java.util.Observable;
+import java.util.concurrent.TimeUnit;
+
 import id.co.flipbox.mvvmstarter.data.remote.contracts.Authentication;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
+import id.co.flipbox.mvvmstarter.utils.constants.K;
+import io.reactivex.Flowable;
+import io.reactivex.Maybe;
+import io.reactivex.annotations.NonNull;
+import io.reactivex.functions.BiFunction;
+import io.reactivex.functions.Function;
+import io.reactivex.schedulers.Schedulers;
 
 /**
  * Created by bukhoriaqid on 11/11/16.
@@ -17,23 +24,14 @@ import retrofit2.Response;
 public class AuthAPI extends BaseAPI implements Authentication
 {
     @Override
-    public void login (String id, String password)
+    public Maybe<JsonObject> login (String id, String password)
     {
         // TODO: define your own API URL
-        app.mAPIService.login(id).enqueue(new Callback<JsonObject>()
-        {
-            @Override
-            public void onResponse (Call<JsonObject> call, Response<JsonObject> response)
-            {
-                handleResponse(response, new LoginSuccessEvent());
-            }
+        return app.mAPIService.login(id)
+                              .retry(K.MAX_RETRIES)
+                              .subscribeOn(Schedulers.io());
 
-            @Override
-            public void onFailure (Call<JsonObject> call, Throwable t)
-            {
-                event.post(new ErrorEvent(t));
-            }
-        });
+        // TODO: 7/28/17 find new helper for retryWhen ( rx 2.1.2 )
     }
 
     @Override
@@ -42,22 +40,13 @@ public class AuthAPI extends BaseAPI implements Authentication
     }
 
     @Override
-    public void forgotPassword (String id)
+    public Maybe<JsonObject> forgotPassword (String id)
     {
         // TODO: define your own API URL
-        app.mAPIService.forgotPassword(id).enqueue(new Callback<JsonObject>()
-        {
-            @Override
-            public void onResponse (Call<JsonObject> call, Response<JsonObject> response)
-            {
-                handleResponse(response, new ForgotPasswordSuccessEvent());
-            }
+        return app.mAPIService.forgotPassword(id)
+                              .retry(K.MAX_RETRIES)
+                              .subscribeOn(Schedulers.io());
 
-            @Override
-            public void onFailure (Call<JsonObject> call, Throwable t)
-            {
-                event.post(new ErrorEvent(t));
-            }
-        });
+        // TODO: 7/28/17 find new helper for retryWhen ( rx 2.1.2 )
     }
 }

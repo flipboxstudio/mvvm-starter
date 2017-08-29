@@ -8,23 +8,16 @@ import android.support.v4.app.Fragment;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
-import org.greenrobot.eventbus.EventBus;
-
-import id.co.flipbox.mvvmstarter.data.DataManager;
-
 /**
  * A simple {@link Fragment} subclass.
  */
 public abstract class BaseFragment extends Fragment
 {
 
-    EventBus    event;
-
     @Override
     public void onCreate (@Nullable Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        event = EventBus.getDefault();
     }
 
     /**
