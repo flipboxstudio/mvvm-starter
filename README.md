@@ -70,6 +70,7 @@ Setup included :
 - [ ] Analytics setup
 - [ ] RxJava 2 RetryWhen sample
 - [x] Retrofit Error Handler & sample
+- [x] JWT Library & Utils
 - [x] Data validation
 - [x] Basic Location detection
 - [x] Simple Custom toolbar & menu
