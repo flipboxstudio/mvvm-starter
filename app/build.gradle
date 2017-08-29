@@ -59,4 +59,7 @@ dependencies {
 
     //local storage helper
     compile 'com.orhanobut:hawk:2.0.1'
+
+    //jwt generator
+    compile 'io.jsonwebtoken:jjwt:0.7.0'
 }
