@@ -13,6 +13,7 @@ import com.google.gson.JsonObject;
 import id.co.flipbox.mvvmstarter.R;
 import id.co.flipbox.mvvmstarter.data.DataManager;
 import id.co.flipbox.mvvmstarter.databinding.FragmentForgotPasswordBinding;
+import id.co.flipbox.mvvmstarter.utils.RetrofitErrorAdapter;
 import id.co.flipbox.mvvmstarter.utils.constants.S;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Consumer;
@@ -123,8 +124,9 @@ public class ForgotPasswordFragment extends BaseFragment
                        @Override
                        public void accept (Throwable throwable) throws Exception
                        {
+                           RetrofitErrorAdapter error = new RetrofitErrorAdapter(throwable);
+                           Toast.makeText(getContext(), error.getMessage(), Toast.LENGTH_LONG).show();
                            mBinding.loadingForgot.showLoading(false);
-                           Toast.makeText(getContext(), throwable.getMessage(), Toast.LENGTH_SHORT).show();
                            mBinding.btnForgotSubmit.setEnabled(true);
                        }
                    });

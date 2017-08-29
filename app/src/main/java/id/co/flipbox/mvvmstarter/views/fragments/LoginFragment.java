@@ -17,6 +17,7 @@ import br.com.ilhasoft.support.validation.Validator;
 import id.co.flipbox.mvvmstarter.R;
 import id.co.flipbox.mvvmstarter.data.DataManager;
 import id.co.flipbox.mvvmstarter.databinding.FragmentLoginBinding;
+import id.co.flipbox.mvvmstarter.utils.RetrofitErrorAdapter;
 import id.co.flipbox.mvvmstarter.utils.constants.S;
 import id.co.flipbox.mvvmstarter.views.activities.ViewPagerActivity;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -162,7 +163,8 @@ public class LoginFragment extends BaseFragment
                        public void accept (Throwable throwable) throws Exception
                        {
                            mBinding.loginLoading.showCustomLoading(false);
-                           Toast.makeText(getContext(), throwable.getMessage(), Toast.LENGTH_LONG).show();
+                           RetrofitErrorAdapter error = new RetrofitErrorAdapter(throwable);
+                           Toast.makeText(getContext(), error.getMessage(), Toast.LENGTH_LONG).show();
                            mBinding.btnLogin.setEnabled(true);
                        }
                    });
