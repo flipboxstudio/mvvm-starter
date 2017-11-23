@@ -30,28 +30,14 @@ public class UserStorage implements RAGEContract<User, Integer>, CacheContract
     public Maybe<List<User>> getList ()
     {
         List<User> users = isCacheValid() ? Hawk.get(K.USER_LIST, new ArrayList<User>()) : null;
-        if (users == null)
-        {
-            return Maybe.empty();
-        }
-        else
-        {
-            return Maybe.just(users).subscribeOn(Schedulers.io());
-        }
+        return users == null ? Maybe.<List<User>>empty() : Maybe.just(users).subscribeOn(Schedulers.io());
     }
 
     @Override
     public Maybe<User> get (Integer id)
     {
         User user = isCacheValid() ? Hawk.get(String.format(K.USER_DETAIL, id), new User(0, "", "")) : null;
-        if (user == null)
-        {
-            return Maybe.empty();
-        }
-        else
-        {
-            return Maybe.just(user).subscribeOn(Schedulers.io());
-        }
+        return user == null ? Maybe.<User>empty() : Maybe.just(user).subscribeOn(Schedulers.io());
     }
 
     @Override
