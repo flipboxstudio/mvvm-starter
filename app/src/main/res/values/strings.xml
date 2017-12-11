@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">MVVM Starter</string>
     <string name="email_label">Email</string>
     <string name="password_label">Password</string>
     <string name="sign_in_label">Sign In</string>
