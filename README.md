@@ -17,7 +17,7 @@ Libraries used :
 * Hawk `com.orhanobut:hawk:2.0.1`
 * Android Libraries ( `appcompat`, `design support`, `data binding`, etc )
 * Sosoito Loading Layout `com.github.flipboxstudio:sosoito:v1.0.3`
-* Data Binding Validator  `com.github.Ilhasoft:data-binding-validator:0.6.4`
+* Data Binding Validator  `com.github.Ilhasoft:data-binding-validator:1.1.0`
 * Rx Java 2 + Rx Android `io.reactivex.rxjava2:rxandroid:2.0.1` & `io.reactivex.rxjava2:rxjava:2.1.2`
 
 --
@@ -59,6 +59,9 @@ Setup included :
 * Utilities classes
 	* Camera Utils : Get image from camera / gallery
 	* Calendar Utils : Parse & display Calendar object into various format
+* Product Flavors
+    * Flavor dimensions : using flavor dimensions enable app to combine multiple flavors ( currently using 1 dimension, env / environment )
+    * Product Flavors : `dev` for development variables and `prod` for production environment variables
 	
 --
 ![screenshots](https://puu.sh/v7Um1/e36c48b42f.png "Screenshots")
@@ -79,4 +82,5 @@ Setup included :
 - [x] Camera utils
 - [x] RecyclerView sample
 - [x] ViewPager sample
+- [x] Product Flavors
 - [ ] Any suggestion?
