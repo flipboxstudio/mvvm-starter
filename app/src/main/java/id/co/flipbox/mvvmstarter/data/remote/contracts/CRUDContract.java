@@ -11,11 +11,11 @@ import io.reactivex.Maybe;
 
 public interface CRUDContract<T, U>
 {
-    Maybe<List<User>> getList ();
+    Maybe<List<T>> getList ();
 
     void create (T obj);
 
-    Maybe<User> read (U id);
+    Maybe<T> read (U id);
 
     void update (T obj, U id);
 

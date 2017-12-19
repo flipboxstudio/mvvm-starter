@@ -8,7 +8,7 @@ import io.reactivex.Maybe;
  * Created by bukhoriaqid on 5/27/17.
  */
 
-public interface AGERContract<T, U>
+public interface RAGEContract<T, U>
 {
     Maybe<List<T>> getList ();
 

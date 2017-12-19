@@ -5,6 +5,7 @@ import com.google.gson.GsonBuilder;
 
 import java.io.IOException;
 
+import id.co.flipbox.mvvmstarter.BuildConfig;
 import id.co.flipbox.mvvmstarter.data.DataManager;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
@@ -21,7 +22,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class RetrofitServiceFactory
 {
     // TODO: define your own base url
-    private static final String               BASE_URL   = "https://jsonplaceholder.typicode.com";
+    private static final String               BASE_URL   = BuildConfig.BASE_URL;
     private static final OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
     private static final Gson                 gson       = new GsonBuilder()
             .registerTypeAdapterFactory(new DataTypeAdapterFactory()).create();
