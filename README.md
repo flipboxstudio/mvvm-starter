@@ -4,6 +4,9 @@
 
 A starter project for Android MVVM Project with DataBinding Library and RxJava 2
 
+### Archived
+This repository will no longer be maintained. Further development will happen in [Modular Starter](https://github.com/medigoid/ModularStarter) using the latest and more scalable approach
+
 ### How To Use 
 You can create new project using our project generator here [MVVM Starter Generator](http://mvvm.flipbox.co.id) - by using our generator you can save the hassle of renaming every package reference & changing folder structure manually. Just input your App & Package name and extract the downloaded file for your future development
 
